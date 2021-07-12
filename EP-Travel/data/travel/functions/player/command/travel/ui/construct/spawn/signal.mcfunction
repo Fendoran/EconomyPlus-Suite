@@ -1,0 +1,4 @@
+## Singal for teleport
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown1 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost1 ep.variable if score #ep.spawn.x ep.variable = #ep.spawn.x ep.variable run function travel:player/command/travel/ui/construct/spawn/command
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown1 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost1 ep.variable unless score #ep.spawn.x ep.variable = #ep.spawn.x ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" No spawn point set.","color":"red"}]
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown1 matches ..0 unless score @s ep.money >= #ep.terminal.teleport_cost1 ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" Insufficient funds to teleport.","color":"red"}]

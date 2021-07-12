@@ -1,0 +1,4 @@
+## Singal for teleport
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown3 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost3 ep.variable if score #ep.auction.x ep.variable = #ep.auction.x ep.variable run function travel:player/command/travel/ui/construct/auction/command
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown3 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost3 ep.variable unless score #ep.auction.x ep.variable = #ep.auction.x ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" No auction point set.","color":"red"}]
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown3 matches ..0 unless score @s ep.money >= #ep.terminal.teleport_cost3 ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" Insufficient funds to teleport.","color":"red"}]

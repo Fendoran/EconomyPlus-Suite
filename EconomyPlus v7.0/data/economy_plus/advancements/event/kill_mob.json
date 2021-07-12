@@ -1,0 +1,10 @@
+{
+	"criteria": {
+		"kill_any_mob": {
+			"trigger": "minecraft:player_killed_entity"
+		}
+	},
+	"rewards": {
+		"function": "directory:player/event/kill_mob"
+	}
+}

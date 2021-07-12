@@ -1,0 +1,18 @@
+## Lists out all commands for the player, in case they forget
+tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"}, {"text": " "}, {"text": "Commands", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger travel", "color": "#ffffff"}, {"text": ": To open teleportation interface.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger bank", "color": "#ffffff"}, {"text": ": To open a Bank interface.", "color": "#C0C0C0"}]
+#tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger credit", "color": "#ffffff"}, {"text": ": To open credit interface. Must be use near Bank.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger auction", "color": "#ffffff"}, {"text": ": To start auction. Must be use near Auction.", "color": "#C0C0C0"}]
+#tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger debt", "color": "#ffffff"}, {"text": ": To view your current debt.", "color": "#C0C0C0"}]
+#tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger deposit", "color": "#ffffff"}, {"text": ": To open deposit interface.", "color": "#C0C0C0"}]
+#tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger withdraw", "color": "#ffffff"}, {"text": ": To open withdrawal interface.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger balance", "color": "#ffffff"}, {"text": ": To view your current balance.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger commands", "color": "#ffffff"}, {"text": ": To view this message.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger pay", "color": "#ffffff"}, {"text": ": To transfer money to other player.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger sell", "color": "#ffffff"}, {"text": ": To sell item.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger buy", "color": "#ffffff"}, {"text": ": To buy item from player shop.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger bid set <amount>", "color": "#ffffff"}, {"text": ": To bid on an auction.", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger market", "color": "#ffffff"}, {"text": ": Converts a sign to a market sign", "color": "#C0C0C0"}]
+tellraw @s [{"text": "- ", "color": "#C0C0C0"}, {"text": "/trigger settings", "color": "#ffffff"}, {"text": ": Change personal settings", "color": "#C0C0C0"}]
+playsound entity.experience_orb.pickup voice @s

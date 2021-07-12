@@ -1,0 +1,26 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "50K",
+            "color": "#D4AF37"
+        },
+        "description": {
+            "text": "Earn $50000",
+            "color": "#32CD32"
+        },
+        "icon": {
+            "item": "minecraft:diamond_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "c1": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "parent": "economy_plus:earn_25000"
+}

@@ -1,0 +1,44 @@
+{
+	"type": "minecraft:item",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_nugget",
+					"weight": 9,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": [
+								{"text": "Currency", "color": "#D4AF37", "italic": false}
+							]
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{frloot:1,frtype:\"farming\",ucit: {id: \"currency\", from: \"directory\"}}"
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:gold_nugget",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": [
+								{"text": "Currency", "color": "#D4AF37", "italic": false}
+							]
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{frloot:1,frtype:\"farming\",ucit: {id: \"currency\", from: \"directory\"}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

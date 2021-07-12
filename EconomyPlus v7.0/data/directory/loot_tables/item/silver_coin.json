@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:item",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_nugget",
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"text": "Silver Coin",
+								"color": "#FFD700",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{ctc: {id: 'Silver_coin', from: 'ep:economy_plus', traits: ['market_coin']}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

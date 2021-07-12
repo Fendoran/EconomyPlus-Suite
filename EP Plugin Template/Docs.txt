@@ -1,0 +1,30 @@
+So you want to make your own plugin?  That's great, here is a simple guide on what tools we have prepared for you.
+
+First of all, your UID needs are taken care of.  We have 2 ID systems, which are very reliable.  They are the following:
+
+1. UUID - more overhead, but also much more robust
+2. Session - very lightweight, but should only be used for temporary things
+
+The UUID system uses the player's actual UUID because it will NOT change.  So we can have reliable (and returnable) UUIDs.
+function directory:uid/get - copies the executing entities UUID into scoreboards (#ep.uid0-3 ep.variable)
+function directory:uid/copy - copies the scoreboard (#ep.uid0-3 ep.variable) into the executing entities UUID's score (think of opposite uid/get, and should only be ran by non-player entities)
+function directory:uid/compare - if the executing entities UUID scores matches the ones in the scoreboard, then the entity receives the ep.pass_uuid_check tag, make sure to remove this tag as soon as possible
+
+The session system works as an incremental id system, but it gets changed every time a player logs in, so it should only be used for temporary things.
+(scoreboard is called ep.session)
+
+Once you have figured out the ID systems, you can take advantage of our built-in function tags
+These tags executing similarly to #minecraft:tick, but for different events, so as to streamline the plugin process
+
+
+The following tags exist (and can be viewed in the economyplus folder):
+
+load - works same as #minecraft:load, but is executed from the load file in core
+tick - works same as #minecraft:tick, but is executed from the tick file in core
+player_load - works when player is loaded for the FIRST time (only once per player)
+player_tick - ticks as all players, use @s to reference the player
+player_login - works every time the player logs in
+player_death - runs when the player dies
+
+
+Finally, please rename plugin to the name of your plugin, and don't forget to link to EconomyPlus core in your plugin's download

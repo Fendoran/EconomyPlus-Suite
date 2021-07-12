@@ -1,0 +1,32 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:loot_table",
+					"name": "loot:item/currency/ore",
+					"weight":1,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						},
+						{
+							"function": "minecraft:explosion_decay"
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:air",
+					"weight": 9
+				}
+			]
+		}
+	]
+}
