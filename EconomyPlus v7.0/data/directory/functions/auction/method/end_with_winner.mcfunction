@@ -7,7 +7,7 @@ execute store result score #ep.uid2 ep.variable run data get storage ep:auction 
 execute store result score #ep.uid3 ep.variable run data get storage ep:auction seller.uid3
 execute as @a[tag=ep.player.init] run function directory:uid/compare
 
-execute as @p[tag=ep.pass_uuid_check] run function directory:auction/method/pay_seller
+execute as @a[tag=ep.pass_uuid_check] run function directory:auction/method/pay_seller
 
 # Find and work on the Winner
 execute store result score #ep.uid0 ep.variable run data get storage ep:auction highest_bidder.uid0
@@ -17,4 +17,4 @@ execute store result score #ep.uid3 ep.variable run data get storage ep:auction 
 execute store result score #ep.bid ep.variable run data get storage ep:auction highest_bidder.bid
 
 execute as @a[tag=ep.player.init] run function directory:uid/compare
-execute as @p[tag=ep.pass_uuid_check] at @s run function directory:auction/method/reward_winner
+execute as @a[tag=ep.pass_uuid_check] at @s run function directory:auction/method/reward_winner

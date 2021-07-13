@@ -15,4 +15,5 @@ function directory:player/command/credit/message/pay
 scoreboard players operation #ep.vault ep.variable += #ep.credit ep.variable
 
 execute if score #ep.debt ep.variable matches 0 run function directory:player/command/credit/clear_debt
+execute if score #ep.debt ep.variable matches 0 run function directory:player/event/debt/increase_cs
 advancement grant @s[advancements={economy_plus:loan_repay=false}] only economy_plus:loan_repay

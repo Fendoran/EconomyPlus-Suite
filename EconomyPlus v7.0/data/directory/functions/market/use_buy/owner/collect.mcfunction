@@ -1,5 +1,5 @@
 ## Collects money from the shop
-execute as @e[type=area_effect_cloud,tag=ep.trait.market] if score @s ep.session = #ep.shop_uid ep.session at @s run function directory:market/use_buy/owner/main
+execute as @e[type=area_effect_cloud,tag=ep.trait.market] if score @s ep.session = #ep.target_uid ep.session at @s run function directory:market/use_buy/owner/main
 scoreboard players operation #ep.price ep.variable = @e[type=area_effect_cloud,tag=ep.trait.market, tag=ep.trait.market.target] ep.stored_money
 scoreboard players operation #ep.sender ep.money = MAX_INT ep.variable
 scoreboard players operation #ep.receiver ep.money = @s ep.money
