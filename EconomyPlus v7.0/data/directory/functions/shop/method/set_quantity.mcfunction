@@ -2,7 +2,7 @@
 function directory:ram/clear
 
 execute store result storage ep:memory input_quantity int 1 run scoreboard players get #ep.count ep.variable
-function directory:heap/set/quantity
+function directory:heap/method/set_quantity
 
 scoreboard players set @s[tag=!ep.trait.market] ep.use 1
 scoreboard players set @s[tag=!ep.trait.shop.use] ep.max_use 0

@@ -1,7 +1,7 @@
 ## When the owner is standing in the item, this is ran
 ## Creates items and money for shop owner to collect later after the market shop has been destroyed
-function directory:heap/get/quantity
-function directory:heap/get/data
+function directory:heap/method/get_quantity
+function directory:heap/method/get_data
 
 scoreboard players operation #ep.sender ep.money = MAX_INT ep.variable
 scoreboard players operation #ep.receiver ep.money = @s ep.money

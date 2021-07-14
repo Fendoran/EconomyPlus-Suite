@@ -1,4 +1,3 @@
-data merge entity @s {Age: 0, Duration: 2000}
 execute unless block ~ ~ ~ #minecraft:signs run function directory:shop/remove
 execute if score @s[tag=ep.trait.shop.use] ep.time matches 0.. run function directory:shop/event/update_time
 execute if score @s[tag=ep.trait.shop.dynamic] ep.time matches 0.. run function directory:shop/event/update_reset_time

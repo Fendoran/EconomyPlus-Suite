@@ -20,4 +20,4 @@ execute positioned 29999999 0 29999999 run function directory:player/inventory_w
 
 function directory:market/message/owner/success_sell
 
-execute align xyz positioned ~0.5 ~0.5 ~0.5 as @e[type=area_effect_cloud,tag=ep.trait.market,tag=ep.trait.market.target,limit=1] run function directory:shop/event/market_owner_use
+execute align xyz positioned ~0.5 ~0.5 ~0.5 as @e[type=marker,tag=ep.trait.market,tag=ep.trait.market.target,limit=1] run function directory:shop/event/market_owner_use

@@ -1,4 +1,4 @@
 # define tag ep.trait.shop
 # define tag ep.trait.buyer
-summon area_effect_cloud ~ ~ ~ {Tags: ['global.ignore', 'global.ignore.pos', 'ep.trait.shop', 'ep.trait.market', 'ep.spawning','ep.trait.unstable'], Age: 0, Duration: 2}
+summon marker ~ ~ ~ {Tags: ['global.ignore', 'global.ignore.pos', 'ep.trait.shop', 'ep.trait.market', 'ep.spawning','ep.trait.unstable']}
 execute as @e[tag=ep.spawning] run function directory:market/constructor/builder

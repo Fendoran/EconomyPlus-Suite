@@ -5,7 +5,7 @@ function directory:market/check_full
 scoreboard players operation #ep.success ep.variable = #ep.enum.bool.false ep.state
 
 
-execute as @e[type=area_effect_cloud,tag=ep.trait.market] if score @s ep.session = #ep.shop_uid ep.session at @s run function directory:market/use_buy/owner/main
+execute as @e[type=marker,tag=ep.trait.market] if score @s ep.session = #ep.shop_uid ep.session at @s run function directory:market/use_buy/owner/main
 
 scoreboard players operation #ep.state ep.state = #ep.enum.buyer.idle ep.state
 execute if score #ep.state ep.state = #ep.enum.buyer.idle ep.state unless score #ep.use ep.variable matches 1.. run scoreboard players operation #ep.state ep.state = #ep.enum.buyer.in_cooldown ep.state

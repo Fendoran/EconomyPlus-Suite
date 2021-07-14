@@ -10,8 +10,9 @@ function directory:shop/state/init
 scoreboard players operation #ep.target_uid ep.session = @s ep.session
 
 function directory:heap/constructor/new
-function directory:heap/set/item
-function directory:heap/get/name
+function directory:heap/method/set_item
+function directory:heap/method/get_name
+
 
 function directory:shop/state/setup
 

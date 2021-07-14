@@ -60,6 +60,15 @@ public class Generator {
     public static void main(String[] args) {
 
         String[][] settingsMap = {
+
+            // New to 8.0
+            {"SetWorldSpawn":"#ep.config.SetWorldSpawn ep.config"},
+            {"SpawnProtectionX":"#ep.config.SpawnProtectionX ep.config"},
+            {"SpawnProtectionY":"#ep.config.SpawnProtectionY ep.config"},
+            {"SpawnProtectionZ":"#ep.config.SpawnProtectionZ ep.config"},
+
+            // old
+
             {"AllowBounty","#ep.bounty.enabled ep.variable"},
             {"AllowBountyTravel","#ep.bounty.travel ep.variable"},
             {"AllowBountyPayoff","#ep.bounty.payoff ep.variable"},

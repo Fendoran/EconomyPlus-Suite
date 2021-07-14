@@ -5,7 +5,7 @@ function directory:ram/clear
 # Sets score of #ep.target_uid ep.session to shop's uid, and owner uid (if available)
 scoreboard players operation #ep.target_uid ep.session = @s ep.session
 
-function directory:heap/get/data
+function directory:heap/method/get_data
 
 
 execute if block ~ ~ ~ #minecraft:wall_signs positioned ^ ^ ^-0.2 run function directory:player/tooltip/tooltip

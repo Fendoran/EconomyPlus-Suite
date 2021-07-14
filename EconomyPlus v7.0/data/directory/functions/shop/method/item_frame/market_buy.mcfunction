@@ -1,7 +1,7 @@
 ## Adjusts the redstone for the max use type of sign (similar to that of market)
 
 scoreboard players operation #ep.target_uid ep.session = @s ep.session
-function directory:heap/get/data
+function directory:heap/method/get_data
 
 execute store result score #ep.sell_count ep.variable run data get storage ep:memory output_quantity
 

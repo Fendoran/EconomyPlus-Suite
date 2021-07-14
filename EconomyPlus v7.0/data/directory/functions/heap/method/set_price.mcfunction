@@ -1,1 +1,1 @@
-data modify entity @s ArmorItems[-1].tag.ctc.heap.price set from storage ep:memory input_price
+data modify entity @s data.price set from storage ep:memory input_price

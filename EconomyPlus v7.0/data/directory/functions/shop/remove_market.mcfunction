@@ -12,9 +12,9 @@ scoreboard players operation @s ep.stored_money -= #ep.market_reduction ep.varia
 scoreboard players operation @e[type=armor_stand,tag=ep.spawning,limit=1,sort=nearest] ep.stored_money = @s ep.stored_money
 
 # store the total count of items into the floating armorstand
-function directory:heap/get/quantity
-function directory:heap/get/data
-function directory:heap/get/name
+function directory:heap/method/get_quantity
+function directory:heap/method/get_data
+function directory:heap/method/get_name
 
 data modify entity @e[type=armor_stand,tag=ep.spawning,limit=1,sort=nearest] CustomName set from storage ep:memory output_name
 

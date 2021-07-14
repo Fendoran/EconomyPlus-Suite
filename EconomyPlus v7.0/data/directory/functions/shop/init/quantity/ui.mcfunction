@@ -3,7 +3,7 @@ execute positioned ^0 ^1 ^ run function directory:ui/item/button/reset
 
 scoreboard players operation #ep.target_uid ep.session = @s ep.session
 function directory:ram/clear
-function directory:heap/get/quantity
+function directory:heap/method/get_quantity
 execute if data storage ep:memory output_quantity store result score #ep.ui.value ep.variable run data get storage ep:memory output_quantity
 execute unless data storage ep:memory output_quantity run scoreboard players operation #ep.ui.value ep.variable = #ep.ui.default ep.variable
 execute positioned ^ ^ ^ run function directory:ui/item/submit/quantity
