@@ -61,13 +61,13 @@ public class Generator {
 
         String[][] settingsMap = {
 
-            // New to 8.0
-            {"SetWorldSpawn":"#ep.config.SetWorldSpawn ep.config"},
-            {"SpawnProtectionX":"#ep.config.SpawnProtectionX ep.config"},
-            {"SpawnProtectionY":"#ep.config.SpawnProtectionY ep.config"},
-            {"SpawnProtectionZ":"#ep.config.SpawnProtectionZ ep.config"},
+            {"SetWorldSpawn","#ep.config.SetWorldSpawn ep.config"},
+            {"SpawnProtectionX","#ep.config.SpawnProtectionX ep.config"},
+            {"SpawnProtectionY","#ep.config.SpawnProtectionY ep.config"},
+            {"SpawnProtectionZ","#ep.config.SpawnProtectionZ ep.config"},
 
-            // old
+            {"LowestPaidCreditScore","#ep.config.LowestPaidCreditScore ep.config"},
+            {"CreditMinPercentPay","#ep.config.CreditMinPercentPay ep.config"},
 
             {"AllowBounty","#ep.bounty.enabled ep.variable"},
             {"AllowBountyTravel","#ep.bounty.travel ep.variable"},
@@ -148,6 +148,10 @@ public class Generator {
             {"AllowShopTravel","#ep.terminal.teleport_enabled ep.variable"},
             {"ShopTravelCost","#ep.terminal.teleport_cost ep.variable"},
             {"ShopTravelCooldown","#ep.terminal.teleport_cooldown ep.variable"},
+
+            {"AllowMarketTravel","#ep.terminal.teleport_enabled5 ep.variable"},
+            {"MarketTravelCost","#ep.terminal.teleport_cost5 ep.variable"},
+            {"MarketTravelCooldown","#ep.terminal.teleport_cooldown5 ep.variable"},
 
             {"AllowAuction","#ep.auction.enabled ep.variable"},
             {"AuctionSoldFee","#ep.auction.fee ep.variable"},

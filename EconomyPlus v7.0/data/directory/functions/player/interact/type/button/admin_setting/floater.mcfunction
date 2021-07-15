@@ -4,4 +4,5 @@ execute if entity @s[tag=ep.terminal.admin_setting.home.floater.shop] run functi
 execute if entity @s[tag=ep.terminal.admin_setting.home.floater.spawn] run function admin:settings/home/floater/spawn/signal
 execute if entity @s[tag=ep.terminal.admin_setting.home.floater.auction] run function admin:settings/home/floater/auction/signal
 execute if entity @s[tag=ep.terminal.admin_setting.home.floater.bank] run function admin:settings/home/floater/bank/signal
+execute if entity @s[tag=ep.terminal.admin_setting.home.floater.market] run function admin:settings/home/floater/market/signal
 execute if entity @s[tag=ep.terminal.admin_setting.home.floater.remover] run function admin:settings/home/floater/remover/signal

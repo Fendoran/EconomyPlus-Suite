@@ -1,0 +1,4 @@
+## Singal for teleport
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown5 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost5 ep.variable if score #ep.shop.x ep.variable = #ep.shop.x ep.variable run function travel:player/command/travel/ui/construct/market/command
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown5 matches ..0 if score @s ep.money >= #ep.terminal.teleport_cost5 ep.variable unless score #ep.shop.x ep.variable = #ep.shop.x ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" No market point set.","color":"red"}]
+execute as @a[tag=ep.caster] at @s if score @s ep.tp_cooldown5 matches ..0 unless score @s ep.money >= #ep.terminal.teleport_cost5 ep.variable run tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"},{"text":" Insufficient funds to teleport.","color":"red"}]
