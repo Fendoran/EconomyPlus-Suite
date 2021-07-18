@@ -15,6 +15,9 @@ scoreboard players operation @e[type=armor_stand,tag=ep.spawning,limit=1,sort=ne
 function directory:heap/method/get_quantity
 function directory:heap/method/get_data
 function directory:heap/method/get_name
+function directory:heap/method/get_owner
+
+data modify entity @e[type=armor_stand,tag=ep.spawning,limit=1,sort=nearest] ArmorItems[-1].tag.owner set from storage ep:memory output_owner
 
 data modify entity @e[type=armor_stand,tag=ep.spawning,limit=1,sort=nearest] CustomName set from storage ep:memory output_name
 

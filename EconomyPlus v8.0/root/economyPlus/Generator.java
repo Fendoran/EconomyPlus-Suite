@@ -65,6 +65,7 @@ public class Generator {
             {"SpawnProtectionX","#ep.config.SpawnProtectionX ep.config"},
             {"SpawnProtectionY","#ep.config.SpawnProtectionY ep.config"},
             {"SpawnProtectionZ","#ep.config.SpawnProtectionZ ep.config"},
+            {"MarketSignTimer","#ep.MarketSignTimer ep.config"}
 
             {"LowestPaidCreditScore","#ep.config.LowestPaidCreditScore ep.config"},
             {"CreditMinPercentPay","#ep.config.CreditMinPercentPay ep.config"},
