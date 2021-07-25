@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowBankInterest
+    <button class="button on" id="AllowBankInterest" onclick=toggle></button>
+    <script>
+        var AllowBankInterest = sessionStorage.getItem('ep.AllowBankInterest');
+        console.log(AllowBankInterest)
+        if (AllowBankInterest === null) {
+            AllowBankInterest = "1";
+            sessionStorage.setItem('ep.AllowBankInterest', "1");
+        }
+
+        if(AllowBankInterest === "1") {
+            document.getElementById("AllowBankInterest").innerHTML = "True";
+            document.getElementById("AllowBankInterest").classList.add("on");
+            document.getElementById("AllowBankInterest").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBankInterest', "1");
+        } else {
+            document.getElementById("AllowBankInterest").innerHTML = "False";
+            document.getElementById("AllowBankInterest").classList.add("off");
+            document.getElementById("AllowBankInterest").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBankInterest', "0");
+        }
+
+        document.getElementById("AllowBankInterest").onclick = function() {
+            //AllowBankInterest = !AllowBankInterest
+            if(AllowBankInterest === "0") {
+                AllowBankInterest = "1"
+                document.getElementById("AllowBankInterest").innerHTML = "True";
+                document.getElementById("AllowBankInterest").classList.add("on");
+                document.getElementById("AllowBankInterest").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBankInterest', "1");
+                
+            } else {
+                AllowBankInterest = "0"
+                document.getElementById("AllowBankInterest").innerHTML = "False";
+                document.getElementById("AllowBankInterest").classList.add("off");
+                document.getElementById("AllowBankInterest").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBankInterest', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>VaultBalanceBeforeInterest
+    <span class="VaultBalanceBeforeInterest">$</span>
+    <input class="percent numbox" type="number" id="VaultBalanceBeforeInterest" placeholder="Enter a positive number">
+    <script>
+        var VaultBalanceBeforeInterest = sessionStorage.getItem('ep.VaultBalanceBeforeInterest');
+        
+        if (VaultBalanceBeforeInterest === null) {
+            var VaultBalanceBeforeInterest = "10000";
+            sessionStorage.setItem('ep.VaultBalanceBeforeInterest', "10000");
+        }
+        const eVaultBalanceBeforeInterest = document.getElementById('VaultBalanceBeforeInterest');
+        document.getElementById('VaultBalanceBeforeInterest').value = VaultBalanceBeforeInterest;
+
+        eVaultBalanceBeforeInterest.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            VaultBalanceBeforeInterest = e.target.value;
+            sessionStorage.setItem('ep.VaultBalanceBeforeInterest', VaultBalanceBeforeInterest);
+        }
+    </script>
+</h3>
+<h3>BankBalanceBeforeInterest
+    <span class="BankBalanceBeforeInterest">$</span>
+    <input class="percent numbox" type="number" id="BankBalanceBeforeInterest" placeholder="Enter a positive number">
+    <script>
+        var BankBalanceBeforeInterest = sessionStorage.getItem('ep.BankBalanceBeforeInterest');
+        
+        if (BankBalanceBeforeInterest === null) {
+            var BankBalanceBeforeInterest = "1000";
+            sessionStorage.setItem('ep.BankBalanceBeforeInterest', "1000");
+        }
+        const eBankBalanceBeforeInterest = document.getElementById('BankBalanceBeforeInterest');
+        document.getElementById('BankBalanceBeforeInterest').value = BankBalanceBeforeInterest;
+
+        eBankBalanceBeforeInterest.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BankBalanceBeforeInterest = e.target.value;
+            sessionStorage.setItem('ep.BankBalanceBeforeInterest', BankBalanceBeforeInterest);
+        }
+    </script>
+</h3>
+<h3>BankInterestRate
+            
+    <input class="percent numbox" type="number" id="BankInterestRate" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var BankInterestRate = sessionStorage.getItem('ep.BankInterestRate');
+        
+        if (BankInterestRate === null) {
+            var BankInterestRate = "1";
+            sessionStorage.setItem('ep.BankInterestRate', "1");
+        }
+        const eBankInterestRate = document.getElementById('BankInterestRate');
+        document.getElementById('BankInterestRate').value = BankInterestRate;
+
+        eBankInterestRate.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BankInterestRate = e.target.value;
+            sessionStorage.setItem('ep.BankInterestRate', BankInterestRate);
+        }
+
+    </script>
+
+</h3>
+<h3>BankInterestInterval
+            
+    <input class="percent numbox" type="number" id="BankInterestInterval" placeholder="Enter a time">
+    <select BankInterestInterval="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var BankInterestInterval = sessionStorage.getItem('ep.BankInterestInterval');
+        if (BankInterestInterval === null) {
+            var BankInterestInterval = "72000";
+            sessionStorage.setItem('ep.BankInterestInterval', "72000");
+        }
+        const eBankInterestInterval = document.getElementById('BankInterestInterval');
+        document.getElementById('BankInterestInterval').value = BankInterestInterval;
+        eBankInterestInterval.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BankInterestInterval = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                BankInterestInterval *= 20
+            } else if(timelist==='m') {
+                BankInterestInterval *= 20*60
+            } else if(timelist==='h') {
+                BankInterestInterval *= 20*60*60
+            }
+            sessionStorage.setItem('ep.BankInterestInterval', BankInterestInterval);
+        }
+
+    </script>
+</h3>
+    </body>
+</html>

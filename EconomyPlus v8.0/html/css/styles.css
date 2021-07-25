@@ -1,0 +1,111 @@
+body {
+  background-color: #202020;
+  font-family: Arial;
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.header {
+  background: #202020;
+}
+
+.logo {
+  padding-left: 25px;
+  padding-top: 50px;
+  padding-bottom: 5px;
+  width: 554;
+  height: 79;
+}
+
+.content {
+  padding: 20px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #0f0f0f;
+  box-shadow: 0 2px 4px 0 #000000;
+  padding-left: 25px;
+}
+
+#navbar a {
+  float: left;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 16px 16px;
+  text-decoration: none;
+  padding-left: 20px
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  color: #ffffff;
+  padding: 14px 16px;
+  background-color: inherit;
+  margin: 0;
+}
+
+#navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #c9a83c;
+  color: #000000;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #2020209a;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 #00000096;
+  Padding-left: 20px;
+}
+
+.subnav-content a {
+  float: left;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-right {
+  float: right;
+  padding-right: 25px;
+}
+
+.text_field {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+}

@@ -1,0 +1,29 @@
+<h2>
+    Output - Copy and Paste this!
+    <button class="button on" id="Output.copy" onclick=toggle>Copy!</button>
+    <br>
+    <textarea id="output" class="output">Generator Output...</textarea>
+    <script>
+        document.getElementById("Output.copy").onclick = function(){
+            document.getElementById("output").select();
+            document.execCommand('copy');
+        }
+
+        function resolveSetting(a, b) {
+            if(a === null) {
+                return b
+            } else {
+                return a
+            }
+        }
+        function output() {
+            var output = "## Output for EconomyPlus v8.0\n"
+            INSERT
+            document.getElementById("output").innerHTML = output;
+        }
+        output()
+
+    </script>
+    
+    
+</h2>

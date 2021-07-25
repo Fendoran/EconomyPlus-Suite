@@ -1,0 +1,20 @@
+<h3>name     
+    <input class="percent numbox" type="number" id="name" placeholder="Enter a positive number">
+    <script>
+        var name = sessionStorage.getItem('ep.name');
+        
+        if (name === null) {
+            var name = "default_value";
+            sessionStorage.setItem('ep.name', "default_value");
+        }
+        const ename = document.getElementById('name');
+        document.getElementById('name').value = name;
+
+        ename.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            name = e.target.value;
+            sessionStorage.setItem('ep.name', name);
+        }
+    </script>
+</h3>
