@@ -1,4 +1,0 @@
-I forget the commands to compile
-javac Generator.java
-jar cvfm ApplySettings.jar MANIFEST.MF *.class
-(and move the .jar file to the main pack)
