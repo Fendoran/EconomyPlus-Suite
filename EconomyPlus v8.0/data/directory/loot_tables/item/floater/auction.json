@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:item",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:loot_table",
+					"name": "directory:item/floater/template",
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"text": "Auction Floater",
+								"italic": false,
+								"color": "#FFD700"
+							}
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{EntityTag: {CustomName: '{\"text\": \"Auction\", \"color\": \"red\"}', Tags: ['ep.trait.floater', 'ep.floater.spawning', 'ep.floater.auction']}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

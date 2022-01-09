@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Core | Bank</title>
+        <base href="../">
+        <link rel="icon" href="assets/page_icon.gif">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Scada&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/nav_bar.css">
+        <link rel="stylesheet" href="css/content_styles.css">
+        <script src="components/header.js" type="text/javascript" defer></script>
+        <script src="components/toggle_button.js" type="text/javascript" defer></script>
+        <script src="components/input_money.js" type="text/javascript" defer></script>
+        <script src="components/input_percent.js" type="text/javascript" defer></script>
+        <script src="components/input_time.js" type="text/javascript" defer></script>
+        <script src="components/input_number.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+        <header-component></header-component>
+        <!--Contents here-->
+        <div class="input-fields">
+            <toggle-button key="interest.enabled" name="Bank Interest" info="Enables/Disables Bank Interests." default="1"></toggle-button>
+            <input-money key="vault_pay_interest" name="Vault Balance Before Interest In Bank Account" info="Amount that the vault need before players will get any interests in their Bank Account." default="10000"></input-money>
+            <input-money key="enum.bank.interest_min" name="Bank Account Balance before Interest" info="Amount that the player need to have in their Bank Account before they can get any Interest." default="1000"></input-money>
+            <input-percent key="enum.bank.interest_rate" name="Bank Interest Rate" info="Amount of currency based on their Bank Account, that is recieved by the player."  default="1"></input-percent>
+            <input-time key="bank.interest.interval" name="Bank Interest Timer" info="Time between each payments."  default="72000"></input-time>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+# Kills entity
+kill @s

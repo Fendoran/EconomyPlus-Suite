@@ -1,0 +1,26 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "My Own Shop",
+            "color": "#D4AF37"
+        },
+        "description": {
+            "text": "Create a player shop with /trigger market while standing in a sign",
+            "color": "#32CD32"
+        },
+        "icon": {
+            "item": "minecraft:birch_sign"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "c1": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "parent": "economy_plus:player_market_sell"
+}

@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:loot_table",
+					"name": "directory:item/currency/mobs",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 10,
+								"max": 20
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

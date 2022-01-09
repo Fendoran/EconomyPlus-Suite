@@ -1,0 +1,32 @@
+{
+	"type": "minecraft:item",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:armor_stand",
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"text": "Template Floater",
+								"italic": false,
+								"color": "#FFD700"
+							}
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{ctc: {id: 'floater', from: 'ep:economy_plus'}}"
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{EntityTag: {CustomNameVisible: 1b, NoGravity: 1b, Marker: 1b, Small: 1b, Invisible: 1b, Invulnerable: 1b, Tags: ['ep.trait.floater', 'ep.floater.spawning', 'ep.floater.template']}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

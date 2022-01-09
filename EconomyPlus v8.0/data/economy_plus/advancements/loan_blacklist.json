@@ -1,0 +1,26 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Blacklisted",
+            "color": "#D4AF37"
+        },
+        "description": {
+            "text": "Have such bad credit that admin shops won't trust you",
+            "color": "#32CD32"
+        },
+        "icon": {
+            "item": "minecraft:wither_rose"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "c1": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "parent": "economy_plus:loan_interest"
+}

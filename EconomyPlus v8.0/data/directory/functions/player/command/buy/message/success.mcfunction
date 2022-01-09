@@ -1,0 +1,2 @@
+tellraw @s [{"text":"\u276cEP\u276d","color":"#D4AF37"}, {"text": " "}, {"text": "You've bought ", "color": "#C0C0C0"}, {"nbt": "output_name", "storage": "ep:memory", "interpret": true, "color": "#32CD32"}, {"text": " from ", "color": "#C0C0C0"}, {"selector": "@a[tag=ep.player_shop.owner]", "color": "#ffffff"}, {"text": " for ", "color": "#C0C0C0"}, {"nbt":"currency_icon","storage":"ep:config","color":"#D4AF37"}, {"score": {"name": "#ep.transaction", "objective": "ep.money"}, "color": "#FFD700"}]
+playsound entity.player.levelup voice @s

@@ -1,0 +1,32 @@
+{
+	"type": "minecraft:item",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:acacia_sign",
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"text": "Acacia Bank Sign",
+								"color": "aqua",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{ctc: {id: 'bank_sign', untradable: 1b, from: 'ep:economy_plus'}}"
+						},
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{BlockEntityTag: {Text1:'{\"text\":\"Bank\",\"color\":\"#518a6e\"}',Text2:'{\"text\":\"Account\",\"color\":\"#D4AF37\"}',Text4:'[{\"text\":\"Open \",\"color\":\"#4AFF2E\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"function directory:player/command/bank/open_terminal\"},\"extra\":[{\"text\":\"Terminal\",\"color\":\"#BFBFBF\"}]}]'}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,2 @@
+execute if entity @s[tag=ep.trait.market.buy] run data modify block ~ ~ ~ Text1 set value '[{"text": "Market", "color": "#FFA07A"},{"text":" ⋄ ","color":"#ffffff"},{"text": "Buy", "color": "#4F9BFF"}]'
+execute if entity @s[tag=ep.trait.market.sell] run data modify block ~ ~ ~ Text1 set value '[{"text": "Market", "color": "#FFA07A"},{"text":" ⋄ ","color":"#ffffff"},{"text": "Sell", "color": "#FF3030"}]'

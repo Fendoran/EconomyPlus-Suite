@@ -1,0 +1,1 @@
+function directory:terminal/event/close_terminal

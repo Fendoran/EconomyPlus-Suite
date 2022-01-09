@@ -1,0 +1,26 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Humble Beginnings",
+            "color": "#D4AF37"
+        },
+        "description": {
+            "text": "Earn your first currency",
+            "color": "#32CD32"
+        },
+        "icon": {
+            "item": "minecraft:oak_planks"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "c1": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "parent": "economy_plus:root"
+}
