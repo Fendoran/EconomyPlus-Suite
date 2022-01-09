@@ -8,3 +8,4 @@ scoreboard players operation #ep.price ep.variable = @s ep.money
 scoreboard players operation #ep.use ep.variable = @s ep.use
 scoreboard players operation #ep.max_use ep.variable = @s ep.max_use
 tag @s add ep.trait.market.target
+#tellraw @p {"score":{"name":"#ep.price","objective":"ep.variable"}}
