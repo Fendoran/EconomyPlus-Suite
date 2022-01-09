@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowPlayerShops
+    <button class="button on" id="AllowPlayerShops" onclick=toggle></button>
+    <script>
+        var AllowPlayerShops = sessionStorage.getItem('ep.AllowPlayerShops');
+        console.log(AllowPlayerShops)
+        if (AllowPlayerShops === null) {
+            AllowPlayerShops = "1";
+            sessionStorage.setItem('ep.AllowPlayerShops', "1");
+        }
+
+        if(AllowPlayerShops === "1") {
+            document.getElementById("AllowPlayerShops").innerHTML = "True";
+            document.getElementById("AllowPlayerShops").classList.add("on");
+            document.getElementById("AllowPlayerShops").classList.remove("off");
+            sessionStorage.setItem('ep.AllowPlayerShops', "1");
+        } else {
+            document.getElementById("AllowPlayerShops").innerHTML = "False";
+            document.getElementById("AllowPlayerShops").classList.add("off");
+            document.getElementById("AllowPlayerShops").classList.remove("on");
+            sessionStorage.setItem('ep.AllowPlayerShops', "0");
+        }
+
+        document.getElementById("AllowPlayerShops").onclick = function() {
+            //AllowPlayerShops = !AllowPlayerShops
+            if(AllowPlayerShops === "0") {
+                AllowPlayerShops = "1"
+                document.getElementById("AllowPlayerShops").innerHTML = "True";
+                document.getElementById("AllowPlayerShops").classList.add("on");
+                document.getElementById("AllowPlayerShops").classList.remove("off");
+                sessionStorage.setItem('ep.AllowPlayerShops', "1");
+                
+            } else {
+                AllowPlayerShops = "0"
+                document.getElementById("AllowPlayerShops").innerHTML = "False";
+                document.getElementById("AllowPlayerShops").classList.add("off");
+                document.getElementById("AllowPlayerShops").classList.remove("on");
+                sessionStorage.setItem('ep.AllowPlayerShops', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>PlayerShopCost
+    <span class="PlayerShopCost">$</span>
+    <input class="percent numbox" type="number" id="PlayerShopCost" placeholder="Enter a positive number">
+    <script>
+        var PlayerShopCost = sessionStorage.getItem('ep.PlayerShopCost');
+        
+        if (PlayerShopCost === null) {
+            var PlayerShopCost = "25";
+            sessionStorage.setItem('ep.PlayerShopCost', "25");
+        }
+        const ePlayerShopCost = document.getElementById('PlayerShopCost');
+        document.getElementById('PlayerShopCost').value = PlayerShopCost;
+
+        ePlayerShopCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            PlayerShopCost = e.target.value;
+            sessionStorage.setItem('ep.PlayerShopCost', PlayerShopCost);
+        }
+    </script>
+</h3>
+<h3>PlayerShopCostFee
+            
+    <input class="percent numbox" type="number" id="PlayerShopCostFee" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var PlayerShopCostFee = sessionStorage.getItem('ep.PlayerShopCostFee');
+        
+        if (PlayerShopCostFee === null) {
+            var PlayerShopCostFee = "10";
+            sessionStorage.setItem('ep.PlayerShopCostFee', "10");
+        }
+        const ePlayerShopCostFee = document.getElementById('PlayerShopCostFee');
+        document.getElementById('PlayerShopCostFee').value = PlayerShopCostFee;
+
+        ePlayerShopCostFee.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            PlayerShopCostFee = e.target.value;
+            sessionStorage.setItem('ep.PlayerShopCostFee', PlayerShopCostFee);
+        }
+
+    </script>
+
+</h3>
+<h3>MarketSignTimer
+            
+    <input class="percent numbox" type="number" id="MarketSignTimer" placeholder="Enter a time">
+    <select MarketSignTimer="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var MarketSignTimer = sessionStorage.getItem('ep.MarketSignTimer');
+        if (MarketSignTimer === null) {
+            var MarketSignTimer = "6000";
+            sessionStorage.setItem('ep.MarketSignTimer', "6000");
+        }
+        const eMarketSignTimer = document.getElementById('MarketSignTimer');
+        document.getElementById('MarketSignTimer').value = MarketSignTimer;
+        eMarketSignTimer.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MarketSignTimer = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                MarketSignTimer *= 20
+            } else if(timelist==='m') {
+                MarketSignTimer *= 20*60
+            } else if(timelist==='h') {
+                MarketSignTimer *= 20*60*60
+            }
+            sessionStorage.setItem('ep.MarketSignTimer', MarketSignTimer);
+        }
+
+    </script>
+</h3><h3>MarketSignFloaterDespawn
+            
+    <input class="percent numbox" type="number" id="MarketSignFloaterDespawn" placeholder="Enter a time">
+    <select MarketSignFloaterDespawn="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var MarketSignFloaterDespawn = sessionStorage.getItem('ep.MarketSignFloaterDespawn');
+        if (MarketSignFloaterDespawn === null) {
+            var MarketSignFloaterDespawn = "0";
+            sessionStorage.setItem('ep.MarketSignFloaterDespawn', "0");
+        }
+        const eMarketSignFloaterDespawn = document.getElementById('MarketSignFloaterDespawn');
+        document.getElementById('MarketSignFloaterDespawn').value = MarketSignFloaterDespawn;
+        eMarketSignFloaterDespawn.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MarketSignFloaterDespawn = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                MarketSignFloaterDespawn *= 20
+            } else if(timelist==='m') {
+                MarketSignFloaterDespawn *= 20*60
+            } else if(timelist==='h') {
+                MarketSignFloaterDespawn *= 20*60*60
+            }
+            sessionStorage.setItem('ep.MarketSignFloaterDespawn', MarketSignFloaterDespawn);
+        }
+
+    </script>
+</h3><h3>PlayerShopProtection
+    <button class="button on" id="PlayerShopProtection" onclick=toggle></button>
+    <script>
+        var PlayerShopProtection = sessionStorage.getItem('ep.PlayerShopProtection');
+        console.log(PlayerShopProtection)
+        if (PlayerShopProtection === null) {
+            PlayerShopProtection = "1";
+            sessionStorage.setItem('ep.PlayerShopProtection', "1");
+        }
+
+        if(PlayerShopProtection === "1") {
+            document.getElementById("PlayerShopProtection").innerHTML = "True";
+            document.getElementById("PlayerShopProtection").classList.add("on");
+            document.getElementById("PlayerShopProtection").classList.remove("off");
+            sessionStorage.setItem('ep.PlayerShopProtection', "1");
+        } else {
+            document.getElementById("PlayerShopProtection").innerHTML = "False";
+            document.getElementById("PlayerShopProtection").classList.add("off");
+            document.getElementById("PlayerShopProtection").classList.remove("on");
+            sessionStorage.setItem('ep.PlayerShopProtection', "0");
+        }
+
+        document.getElementById("PlayerShopProtection").onclick = function() {
+            //PlayerShopProtection = !PlayerShopProtection
+            if(PlayerShopProtection === "0") {
+                PlayerShopProtection = "1"
+                document.getElementById("PlayerShopProtection").innerHTML = "True";
+                document.getElementById("PlayerShopProtection").classList.add("on");
+                document.getElementById("PlayerShopProtection").classList.remove("off");
+                sessionStorage.setItem('ep.PlayerShopProtection', "1");
+                
+            } else {
+                PlayerShopProtection = "0"
+                document.getElementById("PlayerShopProtection").innerHTML = "False";
+                document.getElementById("PlayerShopProtection").classList.add("off");
+                document.getElementById("PlayerShopProtection").classList.remove("on");
+                sessionStorage.setItem('ep.PlayerShopProtection', "0");
+                
+            }
+        };
+    </script> 
+</h3>
+    </body>
+</html>

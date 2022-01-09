@@ -1,0 +1,34 @@
+<h3>name
+            
+    <input class="percent numbox" type="number" id="name" placeholder="Enter a time">
+    <select name="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var name = sessionStorage.getItem('ep.name');
+        if (name === null) {
+            var name = "default_value";
+            sessionStorage.setItem('ep.name', "default_value");
+        }
+        const ename = document.getElementById('name');
+        document.getElementById('name').value = name;
+        ename.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            name = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                name *= 20
+            } else if(timelist==='m') {
+                name *= 20*60
+            } else if(timelist==='h') {
+                name *= 20*60*60
+            }
+            sessionStorage.setItem('ep.name', name);
+        }
+
+    </script>
+</h3>

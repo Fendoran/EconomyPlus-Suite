@@ -8,6 +8,7 @@ scoreboard objectives add ep.tp_cooldown1 dummy
 scoreboard objectives add ep.tp_cooldown2 dummy
 scoreboard objectives add ep.tp_cooldown3 dummy
 scoreboard objectives add ep.tp_cooldown4 dummy
+scoreboard objectives add ep.tp_cooldown5 dummy
 
 scoreboard objectives add travel trigger {"text": "Travel"}
 

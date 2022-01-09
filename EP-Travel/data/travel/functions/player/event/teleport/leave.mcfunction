@@ -10,5 +10,6 @@ tag @s remove ep.trait.player.teleport.spawn
 tag @s remove ep.trait.player.teleport.home
 tag @s remove ep.trait.player.teleport.auction
 tag @s remove ep.trait.player.teleport.bank
+tag @s remove ep.trait.player.teleport.market
 
 playsound minecraft:block.beacon.deactivate voice @s ~ ~ ~ 1 1

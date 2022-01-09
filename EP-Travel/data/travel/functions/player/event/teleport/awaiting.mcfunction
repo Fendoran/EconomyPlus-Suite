@@ -9,6 +9,8 @@ title @s[tag=ep.trait.player.teleport.home] subtitle [{"text":"Traveling to ","c
 title @s[tag=ep.trait.player.teleport.spawn] subtitle [{"text":"Traveling to ","color":"#C0C0C0","bold":false},{"text":"Spawn","color":"#42235d","bold":true},{"text":" in ","color":"#C0C0C0","bold":false},{"score":{"name":"#ep.cool_down","objective":"ep.variable"},"color":"#808080","bold":true},{"text":" seconds.","color":"#C0C0C0","bold":false}]
 title @s[tag=ep.trait.player.teleport.auction] subtitle [{"text":"Traveling to ","color":"#C0C0C0","bold":false},{"text":"Auction","color":"red","bold":true},{"text":" in ","color":"#C0C0C0","bold":false},{"score":{"name":"#ep.cool_down","objective":"ep.variable"},"color":"#808080","bold":true},{"text":" seconds.","color":"#C0C0C0","bold":false}]
 title @s[tag=ep.trait.player.teleport.bank] subtitle [{"text":"Traveling to ","color":"#C0C0C0","bold":false},{"text":"Bank","color":"#FFD700","bold":true},{"text":" in ","color":"#C0C0C0","bold":false},{"score":{"name":"#ep.cool_down","objective":"ep.variable"},"color":"#808080","bold":true},{"text":" seconds.","color":"#C0C0C0","bold":false}]
+title @s[tag=ep.trait.player.teleport.market] subtitle [{"text":"Traveling to ","color":"#C0C0C0","bold":false},{"text":"Market","color":"#80F9B7","bold":true},{"text":" in ","color":"#C0C0C0","bold":false},{"score":{"name":"#ep.cool_down","objective":"ep.variable"},"color":"#808080","bold":true},{"text":" seconds.","color":"#C0C0C0","bold":false}]
+
 title @s title {"text":"Teleporting...","color":"#32CD32","bold":true}
 
 # player has moved:
@@ -25,5 +27,6 @@ execute if score @s[tag=ep.trait.player.teleport.home] ep.pre_tp matches ..0 in 
 execute if score @s[tag=ep.trait.player.teleport.spawn] ep.pre_tp matches ..0 in overworld run function travel:terminal/teleport/spawn
 execute if score @s[tag=ep.trait.player.teleport.auction] ep.pre_tp matches ..0 in overworld run function travel:terminal/teleport/auction
 execute if score @s[tag=ep.trait.player.teleport.bank] ep.pre_tp matches ..0 in overworld run function travel:terminal/teleport/bank
+execute if score @s[tag=ep.trait.player.teleport.market] ep.pre_tp matches ..0 in overworld run function travel:terminal/teleport/market
 execute if score @s ep.pre_tp matches ..0 run scoreboard players reset ep.cool_down ep.variable
 execute if score @s ep.pre_tp matches ..0 run scoreboard players reset @s ep.pre_tp

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowBounty
+    <button class="button on" id="AllowBounty" onclick=toggle></button>
+    <script>
+        var AllowBounty = sessionStorage.getItem('ep.AllowBounty');
+        console.log(AllowBounty)
+        if (AllowBounty === null) {
+            AllowBounty = "1";
+            sessionStorage.setItem('ep.AllowBounty', "1");
+        }
+
+        if(AllowBounty === "1") {
+            document.getElementById("AllowBounty").innerHTML = "True";
+            document.getElementById("AllowBounty").classList.add("on");
+            document.getElementById("AllowBounty").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBounty', "1");
+        } else {
+            document.getElementById("AllowBounty").innerHTML = "False";
+            document.getElementById("AllowBounty").classList.add("off");
+            document.getElementById("AllowBounty").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBounty', "0");
+        }
+
+        document.getElementById("AllowBounty").onclick = function() {
+            //AllowBounty = !AllowBounty
+            if(AllowBounty === "0") {
+                AllowBounty = "1"
+                document.getElementById("AllowBounty").innerHTML = "True";
+                document.getElementById("AllowBounty").classList.add("on");
+                document.getElementById("AllowBounty").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBounty', "1");
+                
+            } else {
+                AllowBounty = "0"
+                document.getElementById("AllowBounty").innerHTML = "False";
+                document.getElementById("AllowBounty").classList.add("off");
+                document.getElementById("AllowBounty").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBounty', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowBountyTravel
+    <button class="button on" id="AllowBountyTravel" onclick=toggle></button>
+    <script>
+        var AllowBountyTravel = sessionStorage.getItem('ep.AllowBountyTravel');
+        console.log(AllowBountyTravel)
+        if (AllowBountyTravel === null) {
+            AllowBountyTravel = "0";
+            sessionStorage.setItem('ep.AllowBountyTravel', "0");
+        }
+
+        if(AllowBountyTravel === "1") {
+            document.getElementById("AllowBountyTravel").innerHTML = "True";
+            document.getElementById("AllowBountyTravel").classList.add("on");
+            document.getElementById("AllowBountyTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBountyTravel', "1");
+        } else {
+            document.getElementById("AllowBountyTravel").innerHTML = "False";
+            document.getElementById("AllowBountyTravel").classList.add("off");
+            document.getElementById("AllowBountyTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBountyTravel', "0");
+        }
+
+        document.getElementById("AllowBountyTravel").onclick = function() {
+            //AllowBountyTravel = !AllowBountyTravel
+            if(AllowBountyTravel === "0") {
+                AllowBountyTravel = "1"
+                document.getElementById("AllowBountyTravel").innerHTML = "True";
+                document.getElementById("AllowBountyTravel").classList.add("on");
+                document.getElementById("AllowBountyTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBountyTravel', "1");
+                
+            } else {
+                AllowBountyTravel = "0"
+                document.getElementById("AllowBountyTravel").innerHTML = "False";
+                document.getElementById("AllowBountyTravel").classList.add("off");
+                document.getElementById("AllowBountyTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBountyTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowBountyPayoff
+    <button class="button on" id="AllowBountyPayoff" onclick=toggle></button>
+    <script>
+        var AllowBountyPayoff = sessionStorage.getItem('ep.AllowBountyPayoff');
+        console.log(AllowBountyPayoff)
+        if (AllowBountyPayoff === null) {
+            AllowBountyPayoff = "1";
+            sessionStorage.setItem('ep.AllowBountyPayoff', "1");
+        }
+
+        if(AllowBountyPayoff === "1") {
+            document.getElementById("AllowBountyPayoff").innerHTML = "True";
+            document.getElementById("AllowBountyPayoff").classList.add("on");
+            document.getElementById("AllowBountyPayoff").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBountyPayoff', "1");
+        } else {
+            document.getElementById("AllowBountyPayoff").innerHTML = "False";
+            document.getElementById("AllowBountyPayoff").classList.add("off");
+            document.getElementById("AllowBountyPayoff").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBountyPayoff', "0");
+        }
+
+        document.getElementById("AllowBountyPayoff").onclick = function() {
+            //AllowBountyPayoff = !AllowBountyPayoff
+            if(AllowBountyPayoff === "0") {
+                AllowBountyPayoff = "1"
+                document.getElementById("AllowBountyPayoff").innerHTML = "True";
+                document.getElementById("AllowBountyPayoff").classList.add("on");
+                document.getElementById("AllowBountyPayoff").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBountyPayoff', "1");
+                
+            } else {
+                AllowBountyPayoff = "0"
+                document.getElementById("AllowBountyPayoff").innerHTML = "False";
+                document.getElementById("AllowBountyPayoff").classList.add("off");
+                document.getElementById("AllowBountyPayoff").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBountyPayoff', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowBountyBlacklist
+    <button class="button on" id="AllowBountyBlacklist" onclick=toggle></button>
+    <script>
+        var AllowBountyBlacklist = sessionStorage.getItem('ep.AllowBountyBlacklist');
+        console.log(AllowBountyBlacklist)
+        if (AllowBountyBlacklist === null) {
+            AllowBountyBlacklist = "0";
+            sessionStorage.setItem('ep.AllowBountyBlacklist', "0");
+        }
+
+        if(AllowBountyBlacklist === "1") {
+            document.getElementById("AllowBountyBlacklist").innerHTML = "True";
+            document.getElementById("AllowBountyBlacklist").classList.add("on");
+            document.getElementById("AllowBountyBlacklist").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBountyBlacklist', "1");
+        } else {
+            document.getElementById("AllowBountyBlacklist").innerHTML = "False";
+            document.getElementById("AllowBountyBlacklist").classList.add("off");
+            document.getElementById("AllowBountyBlacklist").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBountyBlacklist', "0");
+        }
+
+        document.getElementById("AllowBountyBlacklist").onclick = function() {
+            //AllowBountyBlacklist = !AllowBountyBlacklist
+            if(AllowBountyBlacklist === "0") {
+                AllowBountyBlacklist = "1"
+                document.getElementById("AllowBountyBlacklist").innerHTML = "True";
+                document.getElementById("AllowBountyBlacklist").classList.add("on");
+                document.getElementById("AllowBountyBlacklist").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBountyBlacklist', "1");
+                
+            } else {
+                AllowBountyBlacklist = "0"
+                document.getElementById("AllowBountyBlacklist").innerHTML = "False";
+                document.getElementById("AllowBountyBlacklist").classList.add("off");
+                document.getElementById("AllowBountyBlacklist").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBountyBlacklist', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>BountyKillReceive
+            
+    <input class="percent numbox" type="number" id="BountyKillReceive" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var BountyKillReceive = sessionStorage.getItem('ep.BountyKillReceive');
+        
+        if (BountyKillReceive === null) {
+            var BountyKillReceive = "90";
+            sessionStorage.setItem('ep.BountyKillReceive', "90");
+        }
+        const eBountyKillReceive = document.getElementById('BountyKillReceive');
+        document.getElementById('BountyKillReceive').value = BountyKillReceive;
+
+        eBountyKillReceive.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BountyKillReceive = e.target.value;
+            sessionStorage.setItem('ep.BountyKillReceive', BountyKillReceive);
+        }
+
+    </script>
+
+</h3>
+<h3>BountyDecreaseAmount
+    <span class="BountyDecreaseAmount">$</span>
+    <input class="percent numbox" type="number" id="BountyDecreaseAmount" placeholder="Enter a positive number">
+    <script>
+        var BountyDecreaseAmount = sessionStorage.getItem('ep.BountyDecreaseAmount');
+        
+        if (BountyDecreaseAmount === null) {
+            var BountyDecreaseAmount = "50";
+            sessionStorage.setItem('ep.BountyDecreaseAmount', "50");
+        }
+        const eBountyDecreaseAmount = document.getElementById('BountyDecreaseAmount');
+        document.getElementById('BountyDecreaseAmount').value = BountyDecreaseAmount;
+
+        eBountyDecreaseAmount.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BountyDecreaseAmount = e.target.value;
+            sessionStorage.setItem('ep.BountyDecreaseAmount', BountyDecreaseAmount);
+        }
+    </script>
+</h3>
+<h3>BountyDecreaseTime
+            
+    <input class="percent numbox" type="number" id="BountyDecreaseTime" placeholder="Enter a time">
+    <select BountyDecreaseTime="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var BountyDecreaseTime = sessionStorage.getItem('ep.BountyDecreaseTime');
+        if (BountyDecreaseTime === null) {
+            var BountyDecreaseTime = "30000";
+            sessionStorage.setItem('ep.BountyDecreaseTime', "30000");
+        }
+        const eBountyDecreaseTime = document.getElementById('BountyDecreaseTime');
+        document.getElementById('BountyDecreaseTime').value = BountyDecreaseTime;
+        eBountyDecreaseTime.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BountyDecreaseTime = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                BountyDecreaseTime *= 20
+            } else if(timelist==='m') {
+                BountyDecreaseTime *= 20*60
+            } else if(timelist==='h') {
+                BountyDecreaseTime *= 20*60*60
+            }
+            sessionStorage.setItem('ep.BountyDecreaseTime', BountyDecreaseTime);
+        }
+
+    </script>
+</h3><h3>BountyPayoffInterest
+            
+    <input class="percent numbox" type="number" id="BountyPayoffInterest" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var BountyPayoffInterest = sessionStorage.getItem('ep.BountyPayoffInterest');
+        
+        if (BountyPayoffInterest === null) {
+            var BountyPayoffInterest = "25";
+            sessionStorage.setItem('ep.BountyPayoffInterest', "25");
+        }
+        const eBountyPayoffInterest = document.getElementById('BountyPayoffInterest');
+        document.getElementById('BountyPayoffInterest').value = BountyPayoffInterest;
+
+        eBountyPayoffInterest.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BountyPayoffInterest = e.target.value;
+            sessionStorage.setItem('ep.BountyPayoffInterest', BountyPayoffInterest);
+        }
+
+    </script>
+
+</h3>
+
+    </body>
+</html>

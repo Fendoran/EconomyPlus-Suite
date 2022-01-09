@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>SetWorldSpawn
+    <button class="button on" id="SetWorldSpawn" onclick=toggle></button>
+    <script>
+        var SetWorldSpawn = sessionStorage.getItem('ep.SetWorldSpawn');
+        console.log(SetWorldSpawn)
+        if (SetWorldSpawn === null) {
+            SetWorldSpawn = "1";
+            sessionStorage.setItem('ep.SetWorldSpawn', "1");
+        }
+
+        if(SetWorldSpawn === "1") {
+            document.getElementById("SetWorldSpawn").innerHTML = "True";
+            document.getElementById("SetWorldSpawn").classList.add("on");
+            document.getElementById("SetWorldSpawn").classList.remove("off");
+            sessionStorage.setItem('ep.SetWorldSpawn', "1");
+        } else {
+            document.getElementById("SetWorldSpawn").innerHTML = "False";
+            document.getElementById("SetWorldSpawn").classList.add("off");
+            document.getElementById("SetWorldSpawn").classList.remove("on");
+            sessionStorage.setItem('ep.SetWorldSpawn', "0");
+        }
+
+        document.getElementById("SetWorldSpawn").onclick = function() {
+            //SetWorldSpawn = !SetWorldSpawn
+            if(SetWorldSpawn === "0") {
+                SetWorldSpawn = "1"
+                document.getElementById("SetWorldSpawn").innerHTML = "True";
+                document.getElementById("SetWorldSpawn").classList.add("on");
+                document.getElementById("SetWorldSpawn").classList.remove("off");
+                sessionStorage.setItem('ep.SetWorldSpawn', "1");
+                
+            } else {
+                SetWorldSpawn = "0"
+                document.getElementById("SetWorldSpawn").innerHTML = "False";
+                document.getElementById("SetWorldSpawn").classList.add("off");
+                document.getElementById("SetWorldSpawn").classList.remove("on");
+                sessionStorage.setItem('ep.SetWorldSpawn', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>SpawnProtectionX     
+    <input class="percent numbox" type="number" id="SpawnProtectionX" placeholder="Enter a positive number">
+    <script>
+        var SpawnProtectionX = sessionStorage.getItem('ep.SpawnProtectionX');
+        
+        if (SpawnProtectionX === null) {
+            var SpawnProtectionX = "50";
+            sessionStorage.setItem('ep.SpawnProtectionX', "50");
+        }
+        const eSpawnProtectionX = document.getElementById('SpawnProtectionX');
+        document.getElementById('SpawnProtectionX').value = SpawnProtectionX;
+
+        eSpawnProtectionX.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            SpawnProtectionX = e.target.value;
+            sessionStorage.setItem('ep.SpawnProtectionX', SpawnProtectionX);
+        }
+    </script>
+</h3>
+<h3>SpawnProtectionY     
+    <input class="percent numbox" type="number" id="SpawnProtectionY" placeholder="Enter a positive number">
+    <script>
+        var SpawnProtectionY = sessionStorage.getItem('ep.SpawnProtectionY');
+        
+        if (SpawnProtectionY === null) {
+            var SpawnProtectionY = "255";
+            sessionStorage.setItem('ep.SpawnProtectionY', "255");
+        }
+        const eSpawnProtectionY = document.getElementById('SpawnProtectionY');
+        document.getElementById('SpawnProtectionY').value = SpawnProtectionY;
+
+        eSpawnProtectionY.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            SpawnProtectionY = e.target.value;
+            sessionStorage.setItem('ep.SpawnProtectionY', SpawnProtectionY);
+        }
+    </script>
+</h3>
+<h3>SpawnProtectionZ     
+    <input class="percent numbox" type="number" id="SpawnProtectionZ" placeholder="Enter a positive number">
+    <script>
+        var SpawnProtectionZ = sessionStorage.getItem('ep.SpawnProtectionZ');
+        
+        if (SpawnProtectionZ === null) {
+            var SpawnProtectionZ = "50";
+            sessionStorage.setItem('ep.SpawnProtectionZ', "50");
+        }
+        const eSpawnProtectionZ = document.getElementById('SpawnProtectionZ');
+        document.getElementById('SpawnProtectionZ').value = SpawnProtectionZ;
+
+        eSpawnProtectionZ.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            SpawnProtectionZ = e.target.value;
+            sessionStorage.setItem('ep.SpawnProtectionZ', SpawnProtectionZ);
+        }
+    </script>
+</h3>
+
+    </body>
+</html>

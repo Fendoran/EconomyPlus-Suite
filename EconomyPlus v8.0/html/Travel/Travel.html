@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>TravelTime
+            
+    <input class="percent numbox" type="number" id="TravelTime" placeholder="Enter a time">
+    <select TravelTime="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var TravelTime = sessionStorage.getItem('ep.TravelTime');
+        if (TravelTime === null) {
+            var TravelTime = "100";
+            sessionStorage.setItem('ep.TravelTime', "100");
+        }
+        const eTravelTime = document.getElementById('TravelTime');
+        document.getElementById('TravelTime').value = TravelTime;
+        eTravelTime.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            TravelTime = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                TravelTime *= 20
+            } else if(timelist==='m') {
+                TravelTime *= 20*60
+            } else if(timelist==='h') {
+                TravelTime *= 20*60*60
+            }
+            sessionStorage.setItem('ep.TravelTime', TravelTime);
+        }
+
+    </script>
+</h3><h3>AllowHomeTravel
+    <button class="button on" id="AllowHomeTravel" onclick=toggle></button>
+    <script>
+        var AllowHomeTravel = sessionStorage.getItem('ep.AllowHomeTravel');
+        console.log(AllowHomeTravel)
+        if (AllowHomeTravel === null) {
+            AllowHomeTravel = "1";
+            sessionStorage.setItem('ep.AllowHomeTravel', "1");
+        }
+
+        if(AllowHomeTravel === "1") {
+            document.getElementById("AllowHomeTravel").innerHTML = "True";
+            document.getElementById("AllowHomeTravel").classList.add("on");
+            document.getElementById("AllowHomeTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowHomeTravel', "1");
+        } else {
+            document.getElementById("AllowHomeTravel").innerHTML = "False";
+            document.getElementById("AllowHomeTravel").classList.add("off");
+            document.getElementById("AllowHomeTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowHomeTravel', "0");
+        }
+
+        document.getElementById("AllowHomeTravel").onclick = function() {
+            //AllowHomeTravel = !AllowHomeTravel
+            if(AllowHomeTravel === "0") {
+                AllowHomeTravel = "1"
+                document.getElementById("AllowHomeTravel").innerHTML = "True";
+                document.getElementById("AllowHomeTravel").classList.add("on");
+                document.getElementById("AllowHomeTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowHomeTravel', "1");
+                
+            } else {
+                AllowHomeTravel = "0"
+                document.getElementById("AllowHomeTravel").innerHTML = "False";
+                document.getElementById("AllowHomeTravel").classList.add("off");
+                document.getElementById("AllowHomeTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowHomeTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>HomeTravelCost
+    <span class="HomeTravelCost">$</span>
+    <input class="percent numbox" type="number" id="HomeTravelCost" placeholder="Enter a positive number">
+    <script>
+        var HomeTravelCost = sessionStorage.getItem('ep.HomeTravelCost');
+        
+        if (HomeTravelCost === null) {
+            var HomeTravelCost = "15";
+            sessionStorage.setItem('ep.HomeTravelCost', "15");
+        }
+        const eHomeTravelCost = document.getElementById('HomeTravelCost');
+        document.getElementById('HomeTravelCost').value = HomeTravelCost;
+
+        eHomeTravelCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            HomeTravelCost = e.target.value;
+            sessionStorage.setItem('ep.HomeTravelCost', HomeTravelCost);
+        }
+    </script>
+</h3>
+<h3>HomeTravelCooldown
+            
+    <input class="percent numbox" type="number" id="HomeTravelCooldown" placeholder="Enter a time">
+    <select HomeTravelCooldown="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var HomeTravelCooldown = sessionStorage.getItem('ep.HomeTravelCooldown');
+        if (HomeTravelCooldown === null) {
+            var HomeTravelCooldown = "6000";
+            sessionStorage.setItem('ep.HomeTravelCooldown', "6000");
+        }
+        const eHomeTravelCooldown = document.getElementById('HomeTravelCooldown');
+        document.getElementById('HomeTravelCooldown').value = HomeTravelCooldown;
+        eHomeTravelCooldown.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            HomeTravelCooldown = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                HomeTravelCooldown *= 20
+            } else if(timelist==='m') {
+                HomeTravelCooldown *= 20*60
+            } else if(timelist==='h') {
+                HomeTravelCooldown *= 20*60*60
+            }
+            sessionStorage.setItem('ep.HomeTravelCooldown', HomeTravelCooldown);
+        }
+
+    </script>
+</h3><h3>AllowSpawnTravel
+    <button class="button on" id="AllowSpawnTravel" onclick=toggle></button>
+    <script>
+        var AllowSpawnTravel = sessionStorage.getItem('ep.AllowSpawnTravel');
+        console.log(AllowSpawnTravel)
+        if (AllowSpawnTravel === null) {
+            AllowSpawnTravel = "1";
+            sessionStorage.setItem('ep.AllowSpawnTravel', "1");
+        }
+
+        if(AllowSpawnTravel === "1") {
+            document.getElementById("AllowSpawnTravel").innerHTML = "True";
+            document.getElementById("AllowSpawnTravel").classList.add("on");
+            document.getElementById("AllowSpawnTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowSpawnTravel', "1");
+        } else {
+            document.getElementById("AllowSpawnTravel").innerHTML = "False";
+            document.getElementById("AllowSpawnTravel").classList.add("off");
+            document.getElementById("AllowSpawnTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowSpawnTravel', "0");
+        }
+
+        document.getElementById("AllowSpawnTravel").onclick = function() {
+            //AllowSpawnTravel = !AllowSpawnTravel
+            if(AllowSpawnTravel === "0") {
+                AllowSpawnTravel = "1"
+                document.getElementById("AllowSpawnTravel").innerHTML = "True";
+                document.getElementById("AllowSpawnTravel").classList.add("on");
+                document.getElementById("AllowSpawnTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowSpawnTravel', "1");
+                
+            } else {
+                AllowSpawnTravel = "0"
+                document.getElementById("AllowSpawnTravel").innerHTML = "False";
+                document.getElementById("AllowSpawnTravel").classList.add("off");
+                document.getElementById("AllowSpawnTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowSpawnTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>SpawnTravelCost
+    <span class="SpawnTravelCost">$</span>
+    <input class="percent numbox" type="number" id="SpawnTravelCost" placeholder="Enter a positive number">
+    <script>
+        var SpawnTravelCost = sessionStorage.getItem('ep.SpawnTravelCost');
+        
+        if (SpawnTravelCost === null) {
+            var SpawnTravelCost = "30";
+            sessionStorage.setItem('ep.SpawnTravelCost', "30");
+        }
+        const eSpawnTravelCost = document.getElementById('SpawnTravelCost');
+        document.getElementById('SpawnTravelCost').value = SpawnTravelCost;
+
+        eSpawnTravelCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            SpawnTravelCost = e.target.value;
+            sessionStorage.setItem('ep.SpawnTravelCost', SpawnTravelCost);
+        }
+    </script>
+</h3>
+<h3>SpawnTravelCooldown
+            
+    <input class="percent numbox" type="number" id="SpawnTravelCooldown" placeholder="Enter a time">
+    <select SpawnTravelCooldown="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var SpawnTravelCooldown = sessionStorage.getItem('ep.SpawnTravelCooldown');
+        if (SpawnTravelCooldown === null) {
+            var SpawnTravelCooldown = "18000";
+            sessionStorage.setItem('ep.SpawnTravelCooldown', "18000");
+        }
+        const eSpawnTravelCooldown = document.getElementById('SpawnTravelCooldown');
+        document.getElementById('SpawnTravelCooldown').value = SpawnTravelCooldown;
+        eSpawnTravelCooldown.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            SpawnTravelCooldown = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                SpawnTravelCooldown *= 20
+            } else if(timelist==='m') {
+                SpawnTravelCooldown *= 20*60
+            } else if(timelist==='h') {
+                SpawnTravelCooldown *= 20*60*60
+            }
+            sessionStorage.setItem('ep.SpawnTravelCooldown', SpawnTravelCooldown);
+        }
+
+    </script>
+</h3><h3>AllowBankTravel
+    <button class="button on" id="AllowBankTravel" onclick=toggle></button>
+    <script>
+        var AllowBankTravel = sessionStorage.getItem('ep.AllowBankTravel');
+        console.log(AllowBankTravel)
+        if (AllowBankTravel === null) {
+            AllowBankTravel = "1";
+            sessionStorage.setItem('ep.AllowBankTravel', "1");
+        }
+
+        if(AllowBankTravel === "1") {
+            document.getElementById("AllowBankTravel").innerHTML = "True";
+            document.getElementById("AllowBankTravel").classList.add("on");
+            document.getElementById("AllowBankTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBankTravel', "1");
+        } else {
+            document.getElementById("AllowBankTravel").innerHTML = "False";
+            document.getElementById("AllowBankTravel").classList.add("off");
+            document.getElementById("AllowBankTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBankTravel', "0");
+        }
+
+        document.getElementById("AllowBankTravel").onclick = function() {
+            //AllowBankTravel = !AllowBankTravel
+            if(AllowBankTravel === "0") {
+                AllowBankTravel = "1"
+                document.getElementById("AllowBankTravel").innerHTML = "True";
+                document.getElementById("AllowBankTravel").classList.add("on");
+                document.getElementById("AllowBankTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBankTravel', "1");
+                
+            } else {
+                AllowBankTravel = "0"
+                document.getElementById("AllowBankTravel").innerHTML = "False";
+                document.getElementById("AllowBankTravel").classList.add("off");
+                document.getElementById("AllowBankTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBankTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>BankTravelCost
+    <span class="BankTravelCost">$</span>
+    <input class="percent numbox" type="number" id="BankTravelCost" placeholder="Enter a positive number">
+    <script>
+        var BankTravelCost = sessionStorage.getItem('ep.BankTravelCost');
+        
+        if (BankTravelCost === null) {
+            var BankTravelCost = "30";
+            sessionStorage.setItem('ep.BankTravelCost', "30");
+        }
+        const eBankTravelCost = document.getElementById('BankTravelCost');
+        document.getElementById('BankTravelCost').value = BankTravelCost;
+
+        eBankTravelCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BankTravelCost = e.target.value;
+            sessionStorage.setItem('ep.BankTravelCost', BankTravelCost);
+        }
+    </script>
+</h3>
+<h3>BankTravelCooldown
+            
+    <input class="percent numbox" type="number" id="BankTravelCooldown" placeholder="Enter a time">
+    <select BankTravelCooldown="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var BankTravelCooldown = sessionStorage.getItem('ep.BankTravelCooldown');
+        if (BankTravelCooldown === null) {
+            var BankTravelCooldown = "18000";
+            sessionStorage.setItem('ep.BankTravelCooldown', "18000");
+        }
+        const eBankTravelCooldown = document.getElementById('BankTravelCooldown');
+        document.getElementById('BankTravelCooldown').value = BankTravelCooldown;
+        eBankTravelCooldown.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            BankTravelCooldown = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                BankTravelCooldown *= 20
+            } else if(timelist==='m') {
+                BankTravelCooldown *= 20*60
+            } else if(timelist==='h') {
+                BankTravelCooldown *= 20*60*60
+            }
+            sessionStorage.setItem('ep.BankTravelCooldown', BankTravelCooldown);
+        }
+
+    </script>
+</h3><h3>AllowAuctionTravel
+    <button class="button on" id="AllowAuctionTravel" onclick=toggle></button>
+    <script>
+        var AllowAuctionTravel = sessionStorage.getItem('ep.AllowAuctionTravel');
+        console.log(AllowAuctionTravel)
+        if (AllowAuctionTravel === null) {
+            AllowAuctionTravel = "1";
+            sessionStorage.setItem('ep.AllowAuctionTravel', "1");
+        }
+
+        if(AllowAuctionTravel === "1") {
+            document.getElementById("AllowAuctionTravel").innerHTML = "True";
+            document.getElementById("AllowAuctionTravel").classList.add("on");
+            document.getElementById("AllowAuctionTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowAuctionTravel', "1");
+        } else {
+            document.getElementById("AllowAuctionTravel").innerHTML = "False";
+            document.getElementById("AllowAuctionTravel").classList.add("off");
+            document.getElementById("AllowAuctionTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowAuctionTravel', "0");
+        }
+
+        document.getElementById("AllowAuctionTravel").onclick = function() {
+            //AllowAuctionTravel = !AllowAuctionTravel
+            if(AllowAuctionTravel === "0") {
+                AllowAuctionTravel = "1"
+                document.getElementById("AllowAuctionTravel").innerHTML = "True";
+                document.getElementById("AllowAuctionTravel").classList.add("on");
+                document.getElementById("AllowAuctionTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowAuctionTravel', "1");
+                
+            } else {
+                AllowAuctionTravel = "0"
+                document.getElementById("AllowAuctionTravel").innerHTML = "False";
+                document.getElementById("AllowAuctionTravel").classList.add("off");
+                document.getElementById("AllowAuctionTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowAuctionTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AuctionTravelCost
+    <span class="AuctionTravelCost">$</span>
+    <input class="percent numbox" type="number" id="AuctionTravelCost" placeholder="Enter a positive number">
+    <script>
+        var AuctionTravelCost = sessionStorage.getItem('ep.AuctionTravelCost');
+        
+        if (AuctionTravelCost === null) {
+            var AuctionTravelCost = "30";
+            sessionStorage.setItem('ep.AuctionTravelCost', "30");
+        }
+        const eAuctionTravelCost = document.getElementById('AuctionTravelCost');
+        document.getElementById('AuctionTravelCost').value = AuctionTravelCost;
+
+        eAuctionTravelCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            AuctionTravelCost = e.target.value;
+            sessionStorage.setItem('ep.AuctionTravelCost', AuctionTravelCost);
+        }
+    </script>
+</h3>
+<h3>AuctionTravelCooldown
+            
+    <input class="percent numbox" type="number" id="AuctionTravelCooldown" placeholder="Enter a time">
+    <select AuctionTravelCooldown="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var AuctionTravelCooldown = sessionStorage.getItem('ep.AuctionTravelCooldown');
+        if (AuctionTravelCooldown === null) {
+            var AuctionTravelCooldown = "18000";
+            sessionStorage.setItem('ep.AuctionTravelCooldown', "18000");
+        }
+        const eAuctionTravelCooldown = document.getElementById('AuctionTravelCooldown');
+        document.getElementById('AuctionTravelCooldown').value = AuctionTravelCooldown;
+        eAuctionTravelCooldown.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            AuctionTravelCooldown = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                AuctionTravelCooldown *= 20
+            } else if(timelist==='m') {
+                AuctionTravelCooldown *= 20*60
+            } else if(timelist==='h') {
+                AuctionTravelCooldown *= 20*60*60
+            }
+            sessionStorage.setItem('ep.AuctionTravelCooldown', AuctionTravelCooldown);
+        }
+
+    </script>
+</h3><h3>AllowShopTravel
+    <button class="button on" id="AllowShopTravel" onclick=toggle></button>
+    <script>
+        var AllowShopTravel = sessionStorage.getItem('ep.AllowShopTravel');
+        console.log(AllowShopTravel)
+        if (AllowShopTravel === null) {
+            AllowShopTravel = "1";
+            sessionStorage.setItem('ep.AllowShopTravel', "1");
+        }
+
+        if(AllowShopTravel === "1") {
+            document.getElementById("AllowShopTravel").innerHTML = "True";
+            document.getElementById("AllowShopTravel").classList.add("on");
+            document.getElementById("AllowShopTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowShopTravel', "1");
+        } else {
+            document.getElementById("AllowShopTravel").innerHTML = "False";
+            document.getElementById("AllowShopTravel").classList.add("off");
+            document.getElementById("AllowShopTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowShopTravel', "0");
+        }
+
+        document.getElementById("AllowShopTravel").onclick = function() {
+            //AllowShopTravel = !AllowShopTravel
+            if(AllowShopTravel === "0") {
+                AllowShopTravel = "1"
+                document.getElementById("AllowShopTravel").innerHTML = "True";
+                document.getElementById("AllowShopTravel").classList.add("on");
+                document.getElementById("AllowShopTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowShopTravel', "1");
+                
+            } else {
+                AllowShopTravel = "0"
+                document.getElementById("AllowShopTravel").innerHTML = "False";
+                document.getElementById("AllowShopTravel").classList.add("off");
+                document.getElementById("AllowShopTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowShopTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>ShopTravelCost
+    <span class="ShopTravelCost">$</span>
+    <input class="percent numbox" type="number" id="ShopTravelCost" placeholder="Enter a positive number">
+    <script>
+        var ShopTravelCost = sessionStorage.getItem('ep.ShopTravelCost');
+        
+        if (ShopTravelCost === null) {
+            var ShopTravelCost = "30";
+            sessionStorage.setItem('ep.ShopTravelCost', "30");
+        }
+        const eShopTravelCost = document.getElementById('ShopTravelCost');
+        document.getElementById('ShopTravelCost').value = ShopTravelCost;
+
+        eShopTravelCost.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            ShopTravelCost = e.target.value;
+            sessionStorage.setItem('ep.ShopTravelCost', ShopTravelCost);
+        }
+    </script>
+</h3>
+<h3>ShopTravelCooldown
+            
+    <input class="percent numbox" type="number" id="ShopTravelCooldown" placeholder="Enter a time">
+    <select ShopTravelCooldown="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var ShopTravelCooldown = sessionStorage.getItem('ep.ShopTravelCooldown');
+        if (ShopTravelCooldown === null) {
+            var ShopTravelCooldown = "6000";
+            sessionStorage.setItem('ep.ShopTravelCooldown', "6000");
+        }
+        const eShopTravelCooldown = document.getElementById('ShopTravelCooldown');
+        document.getElementById('ShopTravelCooldown').value = ShopTravelCooldown;
+        eShopTravelCooldown.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            ShopTravelCooldown = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                ShopTravelCooldown *= 20
+            } else if(timelist==='m') {
+                ShopTravelCooldown *= 20*60
+            } else if(timelist==='h') {
+                ShopTravelCooldown *= 20*60*60
+            }
+            sessionStorage.setItem('ep.ShopTravelCooldown', ShopTravelCooldown);
+        }
+
+    </script>
+</h3><h3>AllowMarketTravel
+    <button class="button on" id="AllowMarketTravel" onclick=toggle></button>
+    <script>
+        var AllowMarketTravel = sessionStorage.getItem('ep.AllowMarketTravel');
+        console.log(AllowMarketTravel)
+        if (AllowMarketTravel === null) {
+            AllowMarketTravel = "1";
+            sessionStorage.setItem('ep.AllowMarketTravel', "1");
+        }
+
+        if(AllowMarketTravel === "1") {
+            document.getElementById("AllowMarketTravel").innerHTML = "True";
+            document.getElementById("AllowMarketTravel").classList.add("on");
+            document.getElementById("AllowMarketTravel").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMarketTravel', "1");
+        } else {
+            document.getElementById("AllowMarketTravel").innerHTML = "False";
+            document.getElementById("AllowMarketTravel").classList.add("off");
+            document.getElementById("AllowMarketTravel").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMarketTravel', "0");
+        }
+
+        document.getElementById("AllowMarketTravel").onclick = function() {
+            //AllowMarketTravel = !AllowMarketTravel
+            if(AllowMarketTravel === "0") {
+                AllowMarketTravel = "1"
+                document.getElementById("AllowMarketTravel").innerHTML = "True";
+                document.getElementById("AllowMarketTravel").classList.add("on");
+                document.getElementById("AllowMarketTravel").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMarketTravel', "1");
+                
+            } else {
+                AllowMarketTravel = "0"
+                document.getElementById("AllowMarketTravel").innerHTML = "False";
+                document.getElementById("AllowMarketTravel").classList.add("off");
+                document.getElementById("AllowMarketTravel").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMarketTravel', "0");
+                
+            }
+        };
+    </script> 
+</h3>
+    </body>
+</html>

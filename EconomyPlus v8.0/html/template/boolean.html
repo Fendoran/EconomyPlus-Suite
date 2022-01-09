@@ -1,0 +1,42 @@
+<h3>name
+    <button class="button on" id="name" onclick=toggle></button>
+    <script>
+        var name = sessionStorage.getItem('ep.name');
+        
+        if (name === null) {
+            name = "default_value";
+            sessionStorage.setItem('ep.name', "default_value");
+        }
+
+        if(name === "1") {
+            document.getElementById("name").innerHTML = "True";
+            document.getElementById("name").classList.add("on");
+            document.getElementById("name").classList.remove("off");
+            sessionStorage.setItem('ep.name', "1");
+        } else {
+            document.getElementById("name").innerHTML = "False";
+            document.getElementById("name").classList.add("off");
+            document.getElementById("name").classList.remove("on");
+            sessionStorage.setItem('ep.name', "0");
+        }
+
+        document.getElementById("name").onclick = function() {
+            //name = !name
+            if(name === "0") {
+                name = "1"
+                document.getElementById("name").innerHTML = "True";
+                document.getElementById("name").classList.add("on");
+                document.getElementById("name").classList.remove("off");
+                sessionStorage.setItem('ep.name', "1");
+                
+            } else {
+                name = "0"
+                document.getElementById("name").innerHTML = "False";
+                document.getElementById("name").classList.add("off");
+                document.getElementById("name").classList.remove("on");
+                sessionStorage.setItem('ep.name', "0");
+                
+            }
+        };
+    </script> 
+</h3>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowDeathDrop
+    <button class="button on" id="AllowDeathDrop" onclick=toggle></button>
+    <script>
+        var AllowDeathDrop = sessionStorage.getItem('ep.AllowDeathDrop');
+        console.log(AllowDeathDrop)
+        if (AllowDeathDrop === null) {
+            AllowDeathDrop = "1";
+            sessionStorage.setItem('ep.AllowDeathDrop', "1");
+        }
+
+        if(AllowDeathDrop === "1") {
+            document.getElementById("AllowDeathDrop").innerHTML = "True";
+            document.getElementById("AllowDeathDrop").classList.add("on");
+            document.getElementById("AllowDeathDrop").classList.remove("off");
+            sessionStorage.setItem('ep.AllowDeathDrop', "1");
+        } else {
+            document.getElementById("AllowDeathDrop").innerHTML = "False";
+            document.getElementById("AllowDeathDrop").classList.add("off");
+            document.getElementById("AllowDeathDrop").classList.remove("on");
+            sessionStorage.setItem('ep.AllowDeathDrop', "0");
+        }
+
+        document.getElementById("AllowDeathDrop").onclick = function() {
+            //AllowDeathDrop = !AllowDeathDrop
+            if(AllowDeathDrop === "0") {
+                AllowDeathDrop = "1"
+                document.getElementById("AllowDeathDrop").innerHTML = "True";
+                document.getElementById("AllowDeathDrop").classList.add("on");
+                document.getElementById("AllowDeathDrop").classList.remove("off");
+                sessionStorage.setItem('ep.AllowDeathDrop', "1");
+                
+            } else {
+                AllowDeathDrop = "0"
+                document.getElementById("AllowDeathDrop").innerHTML = "False";
+                document.getElementById("AllowDeathDrop").classList.add("off");
+                document.getElementById("AllowDeathDrop").classList.remove("on");
+                sessionStorage.setItem('ep.AllowDeathDrop', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>DeathDropRecoverable
+            
+    <input class="percent numbox" type="number" id="DeathDropRecoverable" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DeathDropRecoverable = sessionStorage.getItem('ep.DeathDropRecoverable');
+        
+        if (DeathDropRecoverable === null) {
+            var DeathDropRecoverable = "10";
+            sessionStorage.setItem('ep.DeathDropRecoverable', "10");
+        }
+        const eDeathDropRecoverable = document.getElementById('DeathDropRecoverable');
+        document.getElementById('DeathDropRecoverable').value = DeathDropRecoverable;
+
+        eDeathDropRecoverable.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DeathDropRecoverable = e.target.value;
+            sessionStorage.setItem('ep.DeathDropRecoverable', DeathDropRecoverable);
+        }
+
+    </script>
+
+</h3>
+<h3>DeathDropUnrecoverable
+            
+    <input class="percent numbox" type="number" id="DeathDropUnrecoverable" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DeathDropUnrecoverable = sessionStorage.getItem('ep.DeathDropUnrecoverable');
+        
+        if (DeathDropUnrecoverable === null) {
+            var DeathDropUnrecoverable = "5";
+            sessionStorage.setItem('ep.DeathDropUnrecoverable', "5");
+        }
+        const eDeathDropUnrecoverable = document.getElementById('DeathDropUnrecoverable');
+        document.getElementById('DeathDropUnrecoverable').value = DeathDropUnrecoverable;
+
+        eDeathDropUnrecoverable.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DeathDropUnrecoverable = e.target.value;
+            sessionStorage.setItem('ep.DeathDropUnrecoverable', DeathDropUnrecoverable);
+        }
+
+    </script>
+
+</h3>
+
+    </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowTax
+    <button class="button on" id="AllowTax" onclick=toggle></button>
+    <script>
+        var AllowTax = sessionStorage.getItem('ep.AllowTax');
+        console.log(AllowTax)
+        if (AllowTax === null) {
+            AllowTax = "1";
+            sessionStorage.setItem('ep.AllowTax', "1");
+        }
+
+        if(AllowTax === "1") {
+            document.getElementById("AllowTax").innerHTML = "True";
+            document.getElementById("AllowTax").classList.add("on");
+            document.getElementById("AllowTax").classList.remove("off");
+            sessionStorage.setItem('ep.AllowTax', "1");
+        } else {
+            document.getElementById("AllowTax").innerHTML = "False";
+            document.getElementById("AllowTax").classList.add("off");
+            document.getElementById("AllowTax").classList.remove("on");
+            sessionStorage.setItem('ep.AllowTax', "0");
+        }
+
+        document.getElementById("AllowTax").onclick = function() {
+            //AllowTax = !AllowTax
+            if(AllowTax === "0") {
+                AllowTax = "1"
+                document.getElementById("AllowTax").innerHTML = "True";
+                document.getElementById("AllowTax").classList.add("on");
+                document.getElementById("AllowTax").classList.remove("off");
+                sessionStorage.setItem('ep.AllowTax', "1");
+                
+            } else {
+                AllowTax = "0"
+                document.getElementById("AllowTax").innerHTML = "False";
+                document.getElementById("AllowTax").classList.add("off");
+                document.getElementById("AllowTax").classList.remove("on");
+                sessionStorage.setItem('ep.AllowTax', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>MoneyBeforeTax
+    <span class="MoneyBeforeTax">$</span>
+    <input class="percent numbox" type="number" id="MoneyBeforeTax" placeholder="Enter a positive number">
+    <script>
+        var MoneyBeforeTax = sessionStorage.getItem('ep.MoneyBeforeTax');
+        
+        if (MoneyBeforeTax === null) {
+            var MoneyBeforeTax = "1000";
+            sessionStorage.setItem('ep.MoneyBeforeTax', "1000");
+        }
+        const eMoneyBeforeTax = document.getElementById('MoneyBeforeTax');
+        document.getElementById('MoneyBeforeTax').value = MoneyBeforeTax;
+
+        eMoneyBeforeTax.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MoneyBeforeTax = e.target.value;
+            sessionStorage.setItem('ep.MoneyBeforeTax', MoneyBeforeTax);
+        }
+    </script>
+</h3>
+<h3>TaxRate
+            
+    <input class="percent numbox" type="number" id="TaxRate" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var TaxRate = sessionStorage.getItem('ep.TaxRate');
+        
+        if (TaxRate === null) {
+            var TaxRate = "15";
+            sessionStorage.setItem('ep.TaxRate', "15");
+        }
+        const eTaxRate = document.getElementById('TaxRate');
+        document.getElementById('TaxRate').value = TaxRate;
+
+        eTaxRate.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            TaxRate = e.target.value;
+            sessionStorage.setItem('ep.TaxRate', TaxRate);
+        }
+
+    </script>
+
+</h3>
+<h3>TaxInterval
+            
+    <input class="percent numbox" type="number" id="TaxInterval" placeholder="Enter a time">
+    <select TaxInterval="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var TaxInterval = sessionStorage.getItem('ep.TaxInterval');
+        if (TaxInterval === null) {
+            var TaxInterval = "72000";
+            sessionStorage.setItem('ep.TaxInterval', "72000");
+        }
+        const eTaxInterval = document.getElementById('TaxInterval');
+        document.getElementById('TaxInterval').value = TaxInterval;
+        eTaxInterval.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            TaxInterval = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                TaxInterval *= 20
+            } else if(timelist==='m') {
+                TaxInterval *= 20*60
+            } else if(timelist==='h') {
+                TaxInterval *= 20*60*60
+            }
+            sessionStorage.setItem('ep.TaxInterval', TaxInterval);
+        }
+
+    </script>
+</h3>
+    </body>
+</html>

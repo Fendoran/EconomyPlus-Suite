@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowSideBar
+    <button class="button on" id="AllowSideBar" onclick=toggle></button>
+    <script>
+        var AllowSideBar = sessionStorage.getItem('ep.AllowSideBar');
+        console.log(AllowSideBar)
+        if (AllowSideBar === null) {
+            AllowSideBar = "0";
+            sessionStorage.setItem('ep.AllowSideBar', "0");
+        }
+
+        if(AllowSideBar === "1") {
+            document.getElementById("AllowSideBar").innerHTML = "True";
+            document.getElementById("AllowSideBar").classList.add("on");
+            document.getElementById("AllowSideBar").classList.remove("off");
+            sessionStorage.setItem('ep.AllowSideBar', "1");
+        } else {
+            document.getElementById("AllowSideBar").innerHTML = "False";
+            document.getElementById("AllowSideBar").classList.add("off");
+            document.getElementById("AllowSideBar").classList.remove("on");
+            sessionStorage.setItem('ep.AllowSideBar', "0");
+        }
+
+        document.getElementById("AllowSideBar").onclick = function() {
+            //AllowSideBar = !AllowSideBar
+            if(AllowSideBar === "0") {
+                AllowSideBar = "1"
+                document.getElementById("AllowSideBar").innerHTML = "True";
+                document.getElementById("AllowSideBar").classList.add("on");
+                document.getElementById("AllowSideBar").classList.remove("off");
+                sessionStorage.setItem('ep.AllowSideBar', "1");
+                
+            } else {
+                AllowSideBar = "0"
+                document.getElementById("AllowSideBar").innerHTML = "False";
+                document.getElementById("AllowSideBar").classList.add("off");
+                document.getElementById("AllowSideBar").classList.remove("on");
+                sessionStorage.setItem('ep.AllowSideBar', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowList
+    <button class="button on" id="AllowList" onclick=toggle></button>
+    <script>
+        var AllowList = sessionStorage.getItem('ep.AllowList');
+        console.log(AllowList)
+        if (AllowList === null) {
+            AllowList = "0";
+            sessionStorage.setItem('ep.AllowList', "0");
+        }
+
+        if(AllowList === "1") {
+            document.getElementById("AllowList").innerHTML = "True";
+            document.getElementById("AllowList").classList.add("on");
+            document.getElementById("AllowList").classList.remove("off");
+            sessionStorage.setItem('ep.AllowList', "1");
+        } else {
+            document.getElementById("AllowList").innerHTML = "False";
+            document.getElementById("AllowList").classList.add("off");
+            document.getElementById("AllowList").classList.remove("on");
+            sessionStorage.setItem('ep.AllowList', "0");
+        }
+
+        document.getElementById("AllowList").onclick = function() {
+            //AllowList = !AllowList
+            if(AllowList === "0") {
+                AllowList = "1"
+                document.getElementById("AllowList").innerHTML = "True";
+                document.getElementById("AllowList").classList.add("on");
+                document.getElementById("AllowList").classList.remove("off");
+                sessionStorage.setItem('ep.AllowList', "1");
+                
+            } else {
+                AllowList = "0"
+                document.getElementById("AllowList").innerHTML = "False";
+                document.getElementById("AllowList").classList.add("off");
+                document.getElementById("AllowList").classList.remove("on");
+                sessionStorage.setItem('ep.AllowList', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowActionBar
+    <button class="button on" id="AllowActionBar" onclick=toggle></button>
+    <script>
+        var AllowActionBar = sessionStorage.getItem('ep.AllowActionBar');
+        console.log(AllowActionBar)
+        if (AllowActionBar === null) {
+            AllowActionBar = "1";
+            sessionStorage.setItem('ep.AllowActionBar', "1");
+        }
+
+        if(AllowActionBar === "1") {
+            document.getElementById("AllowActionBar").innerHTML = "True";
+            document.getElementById("AllowActionBar").classList.add("on");
+            document.getElementById("AllowActionBar").classList.remove("off");
+            sessionStorage.setItem('ep.AllowActionBar', "1");
+        } else {
+            document.getElementById("AllowActionBar").innerHTML = "False";
+            document.getElementById("AllowActionBar").classList.add("off");
+            document.getElementById("AllowActionBar").classList.remove("on");
+            sessionStorage.setItem('ep.AllowActionBar', "0");
+        }
+
+        document.getElementById("AllowActionBar").onclick = function() {
+            //AllowActionBar = !AllowActionBar
+            if(AllowActionBar === "0") {
+                AllowActionBar = "1"
+                document.getElementById("AllowActionBar").innerHTML = "True";
+                document.getElementById("AllowActionBar").classList.add("on");
+                document.getElementById("AllowActionBar").classList.remove("off");
+                sessionStorage.setItem('ep.AllowActionBar', "1");
+                
+            } else {
+                AllowActionBar = "0"
+                document.getElementById("AllowActionBar").innerHTML = "False";
+                document.getElementById("AllowActionBar").classList.add("off");
+                document.getElementById("AllowActionBar").classList.remove("on");
+                sessionStorage.setItem('ep.AllowActionBar', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowBelowName
+    <button class="button on" id="AllowBelowName" onclick=toggle></button>
+    <script>
+        var AllowBelowName = sessionStorage.getItem('ep.AllowBelowName');
+        console.log(AllowBelowName)
+        if (AllowBelowName === null) {
+            AllowBelowName = "0";
+            sessionStorage.setItem('ep.AllowBelowName', "0");
+        }
+
+        if(AllowBelowName === "1") {
+            document.getElementById("AllowBelowName").innerHTML = "True";
+            document.getElementById("AllowBelowName").classList.add("on");
+            document.getElementById("AllowBelowName").classList.remove("off");
+            sessionStorage.setItem('ep.AllowBelowName', "1");
+        } else {
+            document.getElementById("AllowBelowName").innerHTML = "False";
+            document.getElementById("AllowBelowName").classList.add("off");
+            document.getElementById("AllowBelowName").classList.remove("on");
+            sessionStorage.setItem('ep.AllowBelowName', "0");
+        }
+
+        document.getElementById("AllowBelowName").onclick = function() {
+            //AllowBelowName = !AllowBelowName
+            if(AllowBelowName === "0") {
+                AllowBelowName = "1"
+                document.getElementById("AllowBelowName").innerHTML = "True";
+                document.getElementById("AllowBelowName").classList.add("on");
+                document.getElementById("AllowBelowName").classList.remove("off");
+                sessionStorage.setItem('ep.AllowBelowName', "1");
+                
+            } else {
+                AllowBelowName = "0"
+                document.getElementById("AllowBelowName").innerHTML = "False";
+                document.getElementById("AllowBelowName").classList.add("off");
+                document.getElementById("AllowBelowName").classList.remove("on");
+                sessionStorage.setItem('ep.AllowBelowName', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>MoneyName     
+    <input class="percent numbox" type="text" id="MoneyName" placeholder="Enter a string">
+    <script>
+        var MoneyName = sessionStorage.getItem('ep.MoneyName');
+        
+        if (MoneyName === null) {
+            var MoneyName = "Money";
+            sessionStorage.setItem('ep.MoneyName', "Money");
+        }
+        const eMoneyName = document.getElementById('MoneyName');
+        document.getElementById('MoneyName').value = MoneyName;
+
+        eMoneyName.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MoneyName = e.target.value;
+            sessionStorage.setItem('ep.MoneyName', MoneyName);
+        }
+    </script>
+</h3>
+<h3>MoneyIcon     
+    <input class="percent numbox" type="text" id="MoneyIcon" placeholder="Enter a string">
+    <script>
+        var MoneyIcon = sessionStorage.getItem('ep.MoneyIcon');
+        
+        if (MoneyIcon === null) {
+            var MoneyIcon = "$";
+            sessionStorage.setItem('ep.MoneyIcon', "$");
+        }
+        const eMoneyIcon = document.getElementById('MoneyIcon');
+        document.getElementById('MoneyIcon').value = MoneyIcon;
+
+        eMoneyIcon.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MoneyIcon = e.target.value;
+            sessionStorage.setItem('ep.MoneyIcon', MoneyIcon);
+        }
+    </script>
+</h3>
+
+    </body>
+</html>

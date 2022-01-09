@@ -12,3 +12,4 @@ execute if score @s ep.tp_cooldown1 matches 1.. run scoreboard players remove @s
 execute if score @s ep.tp_cooldown2 matches 1.. run scoreboard players remove @s ep.tp_cooldown2 1
 execute if score @s ep.tp_cooldown3 matches 1.. run scoreboard players remove @s ep.tp_cooldown3 1
 execute if score @s ep.tp_cooldown4 matches 1.. run scoreboard players remove @s ep.tp_cooldown4 1
+execute if score @s ep.tp_cooldown5 matches 1.. run scoreboard players remove @s ep.tp_cooldown5 1

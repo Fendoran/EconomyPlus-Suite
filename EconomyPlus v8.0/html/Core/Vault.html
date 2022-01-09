@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowVault
+    <button class="button on" id="AllowVault" onclick=toggle></button>
+    <script>
+        var AllowVault = sessionStorage.getItem('ep.AllowVault');
+        console.log(AllowVault)
+        if (AllowVault === null) {
+            AllowVault = "1";
+            sessionStorage.setItem('ep.AllowVault', "1");
+        }
+
+        if(AllowVault === "1") {
+            document.getElementById("AllowVault").innerHTML = "True";
+            document.getElementById("AllowVault").classList.add("on");
+            document.getElementById("AllowVault").classList.remove("off");
+            sessionStorage.setItem('ep.AllowVault', "1");
+        } else {
+            document.getElementById("AllowVault").innerHTML = "False";
+            document.getElementById("AllowVault").classList.add("off");
+            document.getElementById("AllowVault").classList.remove("on");
+            sessionStorage.setItem('ep.AllowVault', "0");
+        }
+
+        document.getElementById("AllowVault").onclick = function() {
+            //AllowVault = !AllowVault
+            if(AllowVault === "0") {
+                AllowVault = "1"
+                document.getElementById("AllowVault").innerHTML = "True";
+                document.getElementById("AllowVault").classList.add("on");
+                document.getElementById("AllowVault").classList.remove("off");
+                sessionStorage.setItem('ep.AllowVault', "1");
+                
+            } else {
+                AllowVault = "0"
+                document.getElementById("AllowVault").innerHTML = "False";
+                document.getElementById("AllowVault").classList.add("off");
+                document.getElementById("AllowVault").classList.remove("on");
+                sessionStorage.setItem('ep.AllowVault', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>PreventSelling
+    <button class="button on" id="PreventSelling" onclick=toggle></button>
+    <script>
+        var PreventSelling = sessionStorage.getItem('ep.PreventSelling');
+        console.log(PreventSelling)
+        if (PreventSelling === null) {
+            PreventSelling = "1";
+            sessionStorage.setItem('ep.PreventSelling', "1");
+        }
+
+        if(PreventSelling === "1") {
+            document.getElementById("PreventSelling").innerHTML = "True";
+            document.getElementById("PreventSelling").classList.add("on");
+            document.getElementById("PreventSelling").classList.remove("off");
+            sessionStorage.setItem('ep.PreventSelling', "1");
+        } else {
+            document.getElementById("PreventSelling").innerHTML = "False";
+            document.getElementById("PreventSelling").classList.add("off");
+            document.getElementById("PreventSelling").classList.remove("on");
+            sessionStorage.setItem('ep.PreventSelling', "0");
+        }
+
+        document.getElementById("PreventSelling").onclick = function() {
+            //PreventSelling = !PreventSelling
+            if(PreventSelling === "0") {
+                PreventSelling = "1"
+                document.getElementById("PreventSelling").innerHTML = "True";
+                document.getElementById("PreventSelling").classList.add("on");
+                document.getElementById("PreventSelling").classList.remove("off");
+                sessionStorage.setItem('ep.PreventSelling', "1");
+                
+            } else {
+                PreventSelling = "0"
+                document.getElementById("PreventSelling").innerHTML = "False";
+                document.getElementById("PreventSelling").classList.add("off");
+                document.getElementById("PreventSelling").classList.remove("on");
+                sessionStorage.setItem('ep.PreventSelling', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>VaultMinValue
+    <span class="VaultMinValue">$</span>
+    <input class="percent numbox" type="number" id="VaultMinValue" placeholder="Enter a positive number">
+    <script>
+        var VaultMinValue = sessionStorage.getItem('ep.VaultMinValue');
+        
+        if (VaultMinValue === null) {
+            var VaultMinValue = "500";
+            sessionStorage.setItem('ep.VaultMinValue', "500");
+        }
+        const eVaultMinValue = document.getElementById('VaultMinValue');
+        document.getElementById('VaultMinValue').value = VaultMinValue;
+
+        eVaultMinValue.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            VaultMinValue = e.target.value;
+            sessionStorage.setItem('ep.VaultMinValue', VaultMinValue);
+        }
+    </script>
+</h3>
+
+    </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowMoneyDropMobs
+    <button class="button on" id="AllowMoneyDropMobs" onclick=toggle></button>
+    <script>
+        var AllowMoneyDropMobs = sessionStorage.getItem('ep.AllowMoneyDropMobs');
+        console.log(AllowMoneyDropMobs)
+        if (AllowMoneyDropMobs === null) {
+            AllowMoneyDropMobs = "1";
+            sessionStorage.setItem('ep.AllowMoneyDropMobs', "1");
+        }
+
+        if(AllowMoneyDropMobs === "1") {
+            document.getElementById("AllowMoneyDropMobs").innerHTML = "True";
+            document.getElementById("AllowMoneyDropMobs").classList.add("on");
+            document.getElementById("AllowMoneyDropMobs").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMoneyDropMobs', "1");
+        } else {
+            document.getElementById("AllowMoneyDropMobs").innerHTML = "False";
+            document.getElementById("AllowMoneyDropMobs").classList.add("off");
+            document.getElementById("AllowMoneyDropMobs").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMoneyDropMobs', "0");
+        }
+
+        document.getElementById("AllowMoneyDropMobs").onclick = function() {
+            //AllowMoneyDropMobs = !AllowMoneyDropMobs
+            if(AllowMoneyDropMobs === "0") {
+                AllowMoneyDropMobs = "1"
+                document.getElementById("AllowMoneyDropMobs").innerHTML = "True";
+                document.getElementById("AllowMoneyDropMobs").classList.add("on");
+                document.getElementById("AllowMoneyDropMobs").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMoneyDropMobs', "1");
+                
+            } else {
+                AllowMoneyDropMobs = "0"
+                document.getElementById("AllowMoneyDropMobs").innerHTML = "False";
+                document.getElementById("AllowMoneyDropMobs").classList.add("off");
+                document.getElementById("AllowMoneyDropMobs").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMoneyDropMobs', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowMoneyDropOre
+    <button class="button on" id="AllowMoneyDropOre" onclick=toggle></button>
+    <script>
+        var AllowMoneyDropOre = sessionStorage.getItem('ep.AllowMoneyDropOre');
+        console.log(AllowMoneyDropOre)
+        if (AllowMoneyDropOre === null) {
+            AllowMoneyDropOre = "1";
+            sessionStorage.setItem('ep.AllowMoneyDropOre', "1");
+        }
+
+        if(AllowMoneyDropOre === "1") {
+            document.getElementById("AllowMoneyDropOre").innerHTML = "True";
+            document.getElementById("AllowMoneyDropOre").classList.add("on");
+            document.getElementById("AllowMoneyDropOre").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMoneyDropOre', "1");
+        } else {
+            document.getElementById("AllowMoneyDropOre").innerHTML = "False";
+            document.getElementById("AllowMoneyDropOre").classList.add("off");
+            document.getElementById("AllowMoneyDropOre").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMoneyDropOre', "0");
+        }
+
+        document.getElementById("AllowMoneyDropOre").onclick = function() {
+            //AllowMoneyDropOre = !AllowMoneyDropOre
+            if(AllowMoneyDropOre === "0") {
+                AllowMoneyDropOre = "1"
+                document.getElementById("AllowMoneyDropOre").innerHTML = "True";
+                document.getElementById("AllowMoneyDropOre").classList.add("on");
+                document.getElementById("AllowMoneyDropOre").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMoneyDropOre', "1");
+                
+            } else {
+                AllowMoneyDropOre = "0"
+                document.getElementById("AllowMoneyDropOre").innerHTML = "False";
+                document.getElementById("AllowMoneyDropOre").classList.add("off");
+                document.getElementById("AllowMoneyDropOre").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMoneyDropOre', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowMoneyDropFarming
+    <button class="button on" id="AllowMoneyDropFarming" onclick=toggle></button>
+    <script>
+        var AllowMoneyDropFarming = sessionStorage.getItem('ep.AllowMoneyDropFarming');
+        console.log(AllowMoneyDropFarming)
+        if (AllowMoneyDropFarming === null) {
+            AllowMoneyDropFarming = "1";
+            sessionStorage.setItem('ep.AllowMoneyDropFarming', "1");
+        }
+
+        if(AllowMoneyDropFarming === "1") {
+            document.getElementById("AllowMoneyDropFarming").innerHTML = "True";
+            document.getElementById("AllowMoneyDropFarming").classList.add("on");
+            document.getElementById("AllowMoneyDropFarming").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMoneyDropFarming', "1");
+        } else {
+            document.getElementById("AllowMoneyDropFarming").innerHTML = "False";
+            document.getElementById("AllowMoneyDropFarming").classList.add("off");
+            document.getElementById("AllowMoneyDropFarming").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMoneyDropFarming', "0");
+        }
+
+        document.getElementById("AllowMoneyDropFarming").onclick = function() {
+            //AllowMoneyDropFarming = !AllowMoneyDropFarming
+            if(AllowMoneyDropFarming === "0") {
+                AllowMoneyDropFarming = "1"
+                document.getElementById("AllowMoneyDropFarming").innerHTML = "True";
+                document.getElementById("AllowMoneyDropFarming").classList.add("on");
+                document.getElementById("AllowMoneyDropFarming").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMoneyDropFarming', "1");
+                
+            } else {
+                AllowMoneyDropFarming = "0"
+                document.getElementById("AllowMoneyDropFarming").innerHTML = "False";
+                document.getElementById("AllowMoneyDropFarming").classList.add("off");
+                document.getElementById("AllowMoneyDropFarming").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMoneyDropFarming', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowMoneyDropFishing
+    <button class="button on" id="AllowMoneyDropFishing" onclick=toggle></button>
+    <script>
+        var AllowMoneyDropFishing = sessionStorage.getItem('ep.AllowMoneyDropFishing');
+        console.log(AllowMoneyDropFishing)
+        if (AllowMoneyDropFishing === null) {
+            AllowMoneyDropFishing = "1";
+            sessionStorage.setItem('ep.AllowMoneyDropFishing', "1");
+        }
+
+        if(AllowMoneyDropFishing === "1") {
+            document.getElementById("AllowMoneyDropFishing").innerHTML = "True";
+            document.getElementById("AllowMoneyDropFishing").classList.add("on");
+            document.getElementById("AllowMoneyDropFishing").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMoneyDropFishing', "1");
+        } else {
+            document.getElementById("AllowMoneyDropFishing").innerHTML = "False";
+            document.getElementById("AllowMoneyDropFishing").classList.add("off");
+            document.getElementById("AllowMoneyDropFishing").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMoneyDropFishing', "0");
+        }
+
+        document.getElementById("AllowMoneyDropFishing").onclick = function() {
+            //AllowMoneyDropFishing = !AllowMoneyDropFishing
+            if(AllowMoneyDropFishing === "0") {
+                AllowMoneyDropFishing = "1"
+                document.getElementById("AllowMoneyDropFishing").innerHTML = "True";
+                document.getElementById("AllowMoneyDropFishing").classList.add("on");
+                document.getElementById("AllowMoneyDropFishing").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMoneyDropFishing', "1");
+                
+            } else {
+                AllowMoneyDropFishing = "0"
+                document.getElementById("AllowMoneyDropFishing").innerHTML = "False";
+                document.getElementById("AllowMoneyDropFishing").classList.add("off");
+                document.getElementById("AllowMoneyDropFishing").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMoneyDropFishing', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>AllowMoneyDropWood
+    <button class="button on" id="AllowMoneyDropWood" onclick=toggle></button>
+    <script>
+        var AllowMoneyDropWood = sessionStorage.getItem('ep.AllowMoneyDropWood');
+        console.log(AllowMoneyDropWood)
+        if (AllowMoneyDropWood === null) {
+            AllowMoneyDropWood = "1";
+            sessionStorage.setItem('ep.AllowMoneyDropWood', "1");
+        }
+
+        if(AllowMoneyDropWood === "1") {
+            document.getElementById("AllowMoneyDropWood").innerHTML = "True";
+            document.getElementById("AllowMoneyDropWood").classList.add("on");
+            document.getElementById("AllowMoneyDropWood").classList.remove("off");
+            sessionStorage.setItem('ep.AllowMoneyDropWood', "1");
+        } else {
+            document.getElementById("AllowMoneyDropWood").innerHTML = "False";
+            document.getElementById("AllowMoneyDropWood").classList.add("off");
+            document.getElementById("AllowMoneyDropWood").classList.remove("on");
+            sessionStorage.setItem('ep.AllowMoneyDropWood', "0");
+        }
+
+        document.getElementById("AllowMoneyDropWood").onclick = function() {
+            //AllowMoneyDropWood = !AllowMoneyDropWood
+            if(AllowMoneyDropWood === "0") {
+                AllowMoneyDropWood = "1"
+                document.getElementById("AllowMoneyDropWood").innerHTML = "True";
+                document.getElementById("AllowMoneyDropWood").classList.add("on");
+                document.getElementById("AllowMoneyDropWood").classList.remove("off");
+                sessionStorage.setItem('ep.AllowMoneyDropWood', "1");
+                
+            } else {
+                AllowMoneyDropWood = "0"
+                document.getElementById("AllowMoneyDropWood").innerHTML = "False";
+                document.getElementById("AllowMoneyDropWood").classList.add("off");
+                document.getElementById("AllowMoneyDropWood").classList.remove("on");
+                sessionStorage.setItem('ep.AllowMoneyDropWood', "0");
+                
+            }
+        };
+    </script> 
+</h3>
+    </body>
+</html>

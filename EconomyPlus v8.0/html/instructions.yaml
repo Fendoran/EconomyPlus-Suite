@@ -1,0 +1,383 @@
+Settings:
+  Core:
+    Spawn:
+      SetWorldSpawn:
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.config.SetWorldSpawn ep.config"
+      SpawnProtectionX:
+        type: "number"
+        default: 50
+        scoreboard: "#ep.config.SpawnProtectionX ep.config"
+      SpawnProtectionY:
+        type: "number"
+        default: 255
+        scoreboard: "#ep.config.SpawnProtectionY ep.config"
+      SpawnProtectionZ:
+        type: "number"
+        default: 50
+        scoreboard: "#ep.config.SpawnProtectionZ ep.config"
+    Bank:
+      AllowBankInterest:
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.interest.enabled ep.config"
+      VaultBalanceBeforeInterest:
+        type: "money"
+        default: 10000
+        scoreboard: "#ep.vault_pay_interest ep.variable"
+      BankBalanceBeforeInterest: 
+        type: "money"
+        default: 1000
+        scoreboard: "#ep.enum.bank.interest_min ep.variable"
+      BankInterestRate: 
+        type: "percent"
+        default: 1
+        scoreboard: "#ep.enum.bank.interest_rate ep.variable"
+      BankInterestInterval: 
+        type: "time"
+        default: "72000"
+        scoreboard: "#ep.bank.interest.interval ep.variable"
+    Vault:
+      AllowVault:
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.realistic_enabled ep.config"
+      PreventSelling:
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.prevent_seller_if_empty ep.variable"
+      VaultMinValue:
+        type: "money"
+        default: 500
+        scoreboard: "#ep.vault_minimum ep.variable"
+    Loan:
+      AllowLoan: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.loan.enabled ep.config"
+      MaxLoan: 
+        type: "money"
+        default: 500000
+        scoreboard: "#ep.loan.max_loan ep.variable"
+      PlayerEquityBeforeLoan: 
+        type: "percent"
+        default: 15
+        scoreboard: "#ep.loan.equity ep.config"
+      MaxLoanOfAmountInVault: 
+        type: "percent"
+        default: 100
+        scoreboard: "#ep.max_loan_percent ep.variable"
+      LoanInterest: 
+        type: "percent"
+        default: 25
+        scoreboard: "#ep.loan.interest_rate ep.variable"
+    Debt:
+      AllowDebt: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.loan.enabled ep.config"
+      DebtInterval: 
+        type: "time"
+        default: "72000"
+        scoreboard: "#ep.debt.interval ep.variable"
+      DebtRateBlack: 
+        type: "percent"
+        default: 0
+        scoreboard: "#ep.debt.rate.black ep.variable"
+      DebtRateRed: 
+        type: "percent"
+        default: 8
+        scoreboard: "#ep.debt.rate.red ep.variable"
+      DebtRateOrange: 
+        type: "percent"
+        default: 4
+        scoreboard: "#ep.debt.rate.orange ep.variable"
+      DebtRateYellow: 
+        type: "percent"
+        default: 2
+        scoreboard: "#ep.debt.rate.yellow ep.variable"
+      DebtRateGreen: 
+        type: "percent"
+        default: 1
+        scoreboard: "#ep.debt.rate.green ep.variable"
+      StartCreditScore: 
+        type: "number"
+        default: 50
+        scoreboard: "#ep.default.credit_score ep.config"
+      LowestPaidCreditScore: 
+        type: "number"
+        default: 10
+        scoreboard: "#ep.config.LowestPaidCreditScore ep.config"
+      MinCreditScoreBlack: 
+        type: "number"
+        default: 0
+        scoreboard: "#ep.credit_score.black ep.variable"
+      MinCreditScoreRed: 
+        type: "number"
+        default: 1
+        scoreboard: "#ep.credit_score.red ep.variable"
+      MinCreditScoreOrange: 
+        type: "number"
+        default: 26
+        scoreboard: "#ep.credit_score.orange ep.variable"
+      MinCreditScoreYellow: 
+        type: "number"
+        default: 51
+        scoreboard: "#ep.credit_score.yellow ep.variable"
+      MinCreditScoreGreen: 
+        type: "number"
+        default: 76
+        scoreboard: "#ep.credit_score.green ep.variable"
+      CreditScoreGain: 
+        type: "number"
+        default: 1
+        scoreboard: "#ep.credit_score.pay ep.variable"
+      CreditScoreLoss: 
+        type: "number"
+        default: 5
+        scoreboard: "#ep.credit_score.miss ep.variable"
+      CreditMinPercentPay: 
+        type: "percent"
+        default: 10
+        scoreboard: "#ep.config.CreditMinPercentPay ep.config"
+    Tax:
+      AllowTax: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.tax.enabled ep.config"
+      MoneyBeforeTax: 
+        type: "money"
+        default: 1000
+        scoreboard: "#ep.tax.min_amount ep.variable"
+      TaxRate: 
+        type: "percent"
+        default: 15
+        scoreboard: "#ep.tax.rate ep.variable"
+      TaxInterval: 
+        type: "time"
+        default: "72000"
+        scoreboard: "#ep.tax.interval ep.variable"
+    Playtime Reward:
+      AllowPlaytimeReward: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.reward.enabled ep.config"
+      PlaytimeRewardAmount: 
+        type: "money"
+        default: 25
+        scoreboard: "#ep.reward_value ep.variable"
+      PlaytimeRewardInterval: 
+        type: "time"
+        default: "72000"
+        scoreboard: "#ep.reward.interval ep.variable"
+    Player Shops:
+      AllowPlayerShops: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.player_shop.enabled ep.config"
+      PlayerShopCost: 
+        type: "money"
+        default: 25
+        scoreboard: "#ep.market.sign_cost ep.variable"
+      PlayerShopCostFee: 
+        type: "percent"
+        default: 10
+        scoreboard: "#ep.market.fee ep.variable"
+      MarketSignTimer: 
+        type: "time"
+        default: 6000
+        scoreboard: "#ep.MarketSignTimer ep.config"
+      MarketSignFloaterDespawn: 
+        type: "time"
+        default: "0"
+        scoreboard: "#null null"
+      PlayerShopProtection: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#null null"
+    Auction:
+      AllowAuction: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.auction.enabled ep.variable"
+      AuctionSoldFee: 
+        type: "percent"
+        default: 5
+        scoreboard: "#ep.auction.fee ep.variable"
+      AuctionBidTimer: 
+        type: "time"
+        default: "1200"
+        scoreboard: "#ep.auction.auction_time ep.variable"
+    Money Display:
+      AllowSideBar: 
+        type: "boolean"
+        default: 0
+        scoreboard: "#ep.sidebar_statistic ep.config"
+      AllowList: 
+        type: "boolean"
+        default: 0
+        scoreboard: "#ep.list_statistic ep.config"
+      AllowActionBar: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.actionbar_statistic ep.config"
+      AllowBelowName: 
+        type: "boolean"
+        default: 0
+        scoreboard: "#ep.below_name_statistic ep.config"
+      MoneyName: 
+        type: "string"
+        default: "Money"
+        command: 'scoreboard objectives modify ep.display_money displayname {"text":"%value%", "color":"#D4AF37"}'
+      MoneyIcon: 
+        type: "string"
+        default: "$"
+        command: "data merge storage ep:config {currency_icon:\"%value%\"}"
+    Death Drop:
+      AllowDeathDrop: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.death.enabled ep.config"
+      DeathDropRecoverable: 
+        type: "percent"
+        default: 10
+        scoreboard: "#ep.dead.drop ep.variable"
+      DeathDropUnrecoverable: 
+        type: "percent"
+        default: 5
+        scoreboard: "#ep.dead.void ep.variable"
+  Travel:
+    Travel:
+      TravelTime: 
+        type: "time"
+        default: "100"
+        scoreboard: "#ep.terminal.pre_teleport_cooldown ep.variable"
+      AllowHomeTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled2 ep.variable"
+      HomeTravelCost: 
+        type: "money"
+        default: 15
+        scoreboard: "#ep.terminal.teleport_cost2 ep.variable"
+      HomeTravelCooldown: 
+        type: "time"
+        default: "6000"
+        scoreboard: "#ep.terminal.teleport_cooldown2 ep.variable"
+      AllowSpawnTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled1 ep.variable"
+      SpawnTravelCost: 
+        type: "money"
+        default: 30
+        scoreboard: "#ep.terminal.teleport_cost1 ep.variable"
+      SpawnTravelCooldown: 
+        type: "time"
+        default: "18000"
+        scoreboard: "#ep.terminal.teleport_cooldown1 ep.variable"
+      AllowBankTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled4 ep.variable"
+      BankTravelCost: 
+        type: "money"
+        default: 30
+        scoreboard: "#ep.terminal.teleport_cost4 ep.variable"
+      BankTravelCooldown: 
+        type: "time"
+        default: "18000"
+        scoreboard: "#ep.terminal.teleport_cooldown4 ep.variable"
+      AllowAuctionTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled3 ep.variable"
+      AuctionTravelCost: 
+        type: "money"
+        default: 30
+        scoreboard: "#ep.terminal.teleport_cost3 ep.variable"
+      AuctionTravelCooldown: 
+        type: "time"
+        default: "18000"
+        scoreboard: "#ep.terminal.teleport_cooldown3 ep.variable"
+      AllowShopTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled ep.variable"
+      ShopTravelCost: 
+        type: "money"
+        default: 30
+        scoreboard: "#ep.terminal.teleport_cost ep.variable"
+      ShopTravelCooldown: 
+        type: "time"
+        default: "18000"
+        scoreboard: "#ep.terminal.teleport_cooldown ep.variable"
+      AllowMarketTravel: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.terminal.teleport_enabled5 ep.variable"
+      ShopTravelCost: 
+        type: "money"
+        default: 30
+        scoreboard: "#ep.terminal.teleport_cost5 ep.variable"
+      ShopTravelCooldown: 
+        type: "time"
+        default: "6000"
+        scoreboard: "#ep.terminal.teleport_cooldown5 ep.variable"
+  Bounty:
+    Bounty:
+      AllowBounty: 
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.bounty.enabled ep.variable"
+      AllowBountyTravel: 
+        type: "boolean"
+        default: 0
+        scoreboard: "#ep.bounty.travel ep.variable"
+      AllowBountyPayoff:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.bounty.payoff ep.variable"
+      AllowBountyBlacklist:  
+        type: "boolean"
+        default: 0
+        scoreboard: "#ep.bounty.blacklist ep.variable"
+      BountyKillReceive: 
+        type: "percent"
+        default: 90
+        scoreboard: "#ep.bounty_percent ep.variable"
+      BountyDecreaseAmount: 
+        type: "money"
+        default: 50
+        scoreboard: "#ep.bounty_decrease ep.variable"
+      BountyDecreaseTime: 
+        type: "time"
+        default: "30000"
+        scoreboard: "#ep.bounty.interval ep.variable"
+      BountyPayoffInterest: 
+        type: "percent"
+        default: 25
+        scoreboard: "#ep.bounty.return.percent ep.variable"
+  Loot:
+    Loot:
+      AllowMoneyDropMobs:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.money_drop.mobs ep.config"
+      AllowMoneyDropOre:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.money_drop.ore ep.config"
+      AllowMoneyDropFarming:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.money_drop.farming ep.config"
+      AllowMoneyDropFishing:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.money_drop.fishing ep.config"
+      AllowMoneyDropWood:  
+        type: "boolean"
+        default: 1
+        scoreboard: "#ep.money_drop.wood ep.config"

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowDebt
+    <button class="button on" id="AllowDebt" onclick=toggle></button>
+    <script>
+        var AllowDebt = sessionStorage.getItem('ep.AllowDebt');
+        console.log(AllowDebt)
+        if (AllowDebt === null) {
+            AllowDebt = "1";
+            sessionStorage.setItem('ep.AllowDebt', "1");
+        }
+
+        if(AllowDebt === "1") {
+            document.getElementById("AllowDebt").innerHTML = "True";
+            document.getElementById("AllowDebt").classList.add("on");
+            document.getElementById("AllowDebt").classList.remove("off");
+            sessionStorage.setItem('ep.AllowDebt', "1");
+        } else {
+            document.getElementById("AllowDebt").innerHTML = "False";
+            document.getElementById("AllowDebt").classList.add("off");
+            document.getElementById("AllowDebt").classList.remove("on");
+            sessionStorage.setItem('ep.AllowDebt', "0");
+        }
+
+        document.getElementById("AllowDebt").onclick = function() {
+            //AllowDebt = !AllowDebt
+            if(AllowDebt === "0") {
+                AllowDebt = "1"
+                document.getElementById("AllowDebt").innerHTML = "True";
+                document.getElementById("AllowDebt").classList.add("on");
+                document.getElementById("AllowDebt").classList.remove("off");
+                sessionStorage.setItem('ep.AllowDebt', "1");
+                
+            } else {
+                AllowDebt = "0"
+                document.getElementById("AllowDebt").innerHTML = "False";
+                document.getElementById("AllowDebt").classList.add("off");
+                document.getElementById("AllowDebt").classList.remove("on");
+                sessionStorage.setItem('ep.AllowDebt', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>DebtInterval
+            
+    <input class="percent numbox" type="number" id="DebtInterval" placeholder="Enter a time">
+    <select DebtInterval="timelist" id="timelist">
+        <option value="t">t</option>
+        <option value="s">s</option>
+        <option value="m">m</option>
+        <option value="h">h</option>
+      </select>
+    <script>
+        var DebtInterval = sessionStorage.getItem('ep.DebtInterval');
+        if (DebtInterval === null) {
+            var DebtInterval = "72000";
+            sessionStorage.setItem('ep.DebtInterval', "72000");
+        }
+        const eDebtInterval = document.getElementById('DebtInterval');
+        document.getElementById('DebtInterval').value = DebtInterval;
+        eDebtInterval.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtInterval = e.target.value;
+            timelist = document.getElementById('timelist').value;
+            if(timelist==='s') {
+                DebtInterval *= 20
+            } else if(timelist==='m') {
+                DebtInterval *= 20*60
+            } else if(timelist==='h') {
+                DebtInterval *= 20*60*60
+            }
+            sessionStorage.setItem('ep.DebtInterval', DebtInterval);
+        }
+
+    </script>
+</h3><h3>DebtRateBlack
+            
+    <input class="percent numbox" type="number" id="DebtRateBlack" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DebtRateBlack = sessionStorage.getItem('ep.DebtRateBlack');
+        
+        if (DebtRateBlack === null) {
+            var DebtRateBlack = "0";
+            sessionStorage.setItem('ep.DebtRateBlack', "0");
+        }
+        const eDebtRateBlack = document.getElementById('DebtRateBlack');
+        document.getElementById('DebtRateBlack').value = DebtRateBlack;
+
+        eDebtRateBlack.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtRateBlack = e.target.value;
+            sessionStorage.setItem('ep.DebtRateBlack', DebtRateBlack);
+        }
+
+    </script>
+
+</h3>
+<h3>DebtRateRed
+            
+    <input class="percent numbox" type="number" id="DebtRateRed" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DebtRateRed = sessionStorage.getItem('ep.DebtRateRed');
+        
+        if (DebtRateRed === null) {
+            var DebtRateRed = "8";
+            sessionStorage.setItem('ep.DebtRateRed', "8");
+        }
+        const eDebtRateRed = document.getElementById('DebtRateRed');
+        document.getElementById('DebtRateRed').value = DebtRateRed;
+
+        eDebtRateRed.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtRateRed = e.target.value;
+            sessionStorage.setItem('ep.DebtRateRed', DebtRateRed);
+        }
+
+    </script>
+
+</h3>
+<h3>DebtRateOrange
+            
+    <input class="percent numbox" type="number" id="DebtRateOrange" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DebtRateOrange = sessionStorage.getItem('ep.DebtRateOrange');
+        
+        if (DebtRateOrange === null) {
+            var DebtRateOrange = "4";
+            sessionStorage.setItem('ep.DebtRateOrange', "4");
+        }
+        const eDebtRateOrange = document.getElementById('DebtRateOrange');
+        document.getElementById('DebtRateOrange').value = DebtRateOrange;
+
+        eDebtRateOrange.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtRateOrange = e.target.value;
+            sessionStorage.setItem('ep.DebtRateOrange', DebtRateOrange);
+        }
+
+    </script>
+
+</h3>
+<h3>DebtRateYellow
+            
+    <input class="percent numbox" type="number" id="DebtRateYellow" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DebtRateYellow = sessionStorage.getItem('ep.DebtRateYellow');
+        
+        if (DebtRateYellow === null) {
+            var DebtRateYellow = "2";
+            sessionStorage.setItem('ep.DebtRateYellow', "2");
+        }
+        const eDebtRateYellow = document.getElementById('DebtRateYellow');
+        document.getElementById('DebtRateYellow').value = DebtRateYellow;
+
+        eDebtRateYellow.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtRateYellow = e.target.value;
+            sessionStorage.setItem('ep.DebtRateYellow', DebtRateYellow);
+        }
+
+    </script>
+
+</h3>
+<h3>DebtRateGreen
+            
+    <input class="percent numbox" type="number" id="DebtRateGreen" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var DebtRateGreen = sessionStorage.getItem('ep.DebtRateGreen');
+        
+        if (DebtRateGreen === null) {
+            var DebtRateGreen = "1";
+            sessionStorage.setItem('ep.DebtRateGreen', "1");
+        }
+        const eDebtRateGreen = document.getElementById('DebtRateGreen');
+        document.getElementById('DebtRateGreen').value = DebtRateGreen;
+
+        eDebtRateGreen.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            DebtRateGreen = e.target.value;
+            sessionStorage.setItem('ep.DebtRateGreen', DebtRateGreen);
+        }
+
+    </script>
+
+</h3>
+<h3>StartCreditScore     
+    <input class="percent numbox" type="number" id="StartCreditScore" placeholder="Enter a positive number">
+    <script>
+        var StartCreditScore = sessionStorage.getItem('ep.StartCreditScore');
+        
+        if (StartCreditScore === null) {
+            var StartCreditScore = "50";
+            sessionStorage.setItem('ep.StartCreditScore', "50");
+        }
+        const eStartCreditScore = document.getElementById('StartCreditScore');
+        document.getElementById('StartCreditScore').value = StartCreditScore;
+
+        eStartCreditScore.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            StartCreditScore = e.target.value;
+            sessionStorage.setItem('ep.StartCreditScore', StartCreditScore);
+        }
+    </script>
+</h3>
+<h3>LowestPaidCreditScore     
+    <input class="percent numbox" type="number" id="LowestPaidCreditScore" placeholder="Enter a positive number">
+    <script>
+        var LowestPaidCreditScore = sessionStorage.getItem('ep.LowestPaidCreditScore');
+        
+        if (LowestPaidCreditScore === null) {
+            var LowestPaidCreditScore = "10";
+            sessionStorage.setItem('ep.LowestPaidCreditScore', "10");
+        }
+        const eLowestPaidCreditScore = document.getElementById('LowestPaidCreditScore');
+        document.getElementById('LowestPaidCreditScore').value = LowestPaidCreditScore;
+
+        eLowestPaidCreditScore.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            LowestPaidCreditScore = e.target.value;
+            sessionStorage.setItem('ep.LowestPaidCreditScore', LowestPaidCreditScore);
+        }
+    </script>
+</h3>
+<h3>MinCreditScoreBlack     
+    <input class="percent numbox" type="number" id="MinCreditScoreBlack" placeholder="Enter a positive number">
+    <script>
+        var MinCreditScoreBlack = sessionStorage.getItem('ep.MinCreditScoreBlack');
+        
+        if (MinCreditScoreBlack === null) {
+            var MinCreditScoreBlack = "0";
+            sessionStorage.setItem('ep.MinCreditScoreBlack', "0");
+        }
+        const eMinCreditScoreBlack = document.getElementById('MinCreditScoreBlack');
+        document.getElementById('MinCreditScoreBlack').value = MinCreditScoreBlack;
+
+        eMinCreditScoreBlack.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MinCreditScoreBlack = e.target.value;
+            sessionStorage.setItem('ep.MinCreditScoreBlack', MinCreditScoreBlack);
+        }
+    </script>
+</h3>
+<h3>MinCreditScoreRed     
+    <input class="percent numbox" type="number" id="MinCreditScoreRed" placeholder="Enter a positive number">
+    <script>
+        var MinCreditScoreRed = sessionStorage.getItem('ep.MinCreditScoreRed');
+        
+        if (MinCreditScoreRed === null) {
+            var MinCreditScoreRed = "1";
+            sessionStorage.setItem('ep.MinCreditScoreRed', "1");
+        }
+        const eMinCreditScoreRed = document.getElementById('MinCreditScoreRed');
+        document.getElementById('MinCreditScoreRed').value = MinCreditScoreRed;
+
+        eMinCreditScoreRed.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MinCreditScoreRed = e.target.value;
+            sessionStorage.setItem('ep.MinCreditScoreRed', MinCreditScoreRed);
+        }
+    </script>
+</h3>
+<h3>MinCreditScoreOrange     
+    <input class="percent numbox" type="number" id="MinCreditScoreOrange" placeholder="Enter a positive number">
+    <script>
+        var MinCreditScoreOrange = sessionStorage.getItem('ep.MinCreditScoreOrange');
+        
+        if (MinCreditScoreOrange === null) {
+            var MinCreditScoreOrange = "26";
+            sessionStorage.setItem('ep.MinCreditScoreOrange', "26");
+        }
+        const eMinCreditScoreOrange = document.getElementById('MinCreditScoreOrange');
+        document.getElementById('MinCreditScoreOrange').value = MinCreditScoreOrange;
+
+        eMinCreditScoreOrange.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MinCreditScoreOrange = e.target.value;
+            sessionStorage.setItem('ep.MinCreditScoreOrange', MinCreditScoreOrange);
+        }
+    </script>
+</h3>
+<h3>MinCreditScoreYellow     
+    <input class="percent numbox" type="number" id="MinCreditScoreYellow" placeholder="Enter a positive number">
+    <script>
+        var MinCreditScoreYellow = sessionStorage.getItem('ep.MinCreditScoreYellow');
+        
+        if (MinCreditScoreYellow === null) {
+            var MinCreditScoreYellow = "51";
+            sessionStorage.setItem('ep.MinCreditScoreYellow', "51");
+        }
+        const eMinCreditScoreYellow = document.getElementById('MinCreditScoreYellow');
+        document.getElementById('MinCreditScoreYellow').value = MinCreditScoreYellow;
+
+        eMinCreditScoreYellow.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MinCreditScoreYellow = e.target.value;
+            sessionStorage.setItem('ep.MinCreditScoreYellow', MinCreditScoreYellow);
+        }
+    </script>
+</h3>
+<h3>MinCreditScoreGreen     
+    <input class="percent numbox" type="number" id="MinCreditScoreGreen" placeholder="Enter a positive number">
+    <script>
+        var MinCreditScoreGreen = sessionStorage.getItem('ep.MinCreditScoreGreen');
+        
+        if (MinCreditScoreGreen === null) {
+            var MinCreditScoreGreen = "76";
+            sessionStorage.setItem('ep.MinCreditScoreGreen', "76");
+        }
+        const eMinCreditScoreGreen = document.getElementById('MinCreditScoreGreen');
+        document.getElementById('MinCreditScoreGreen').value = MinCreditScoreGreen;
+
+        eMinCreditScoreGreen.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MinCreditScoreGreen = e.target.value;
+            sessionStorage.setItem('ep.MinCreditScoreGreen', MinCreditScoreGreen);
+        }
+    </script>
+</h3>
+<h3>CreditScoreGain     
+    <input class="percent numbox" type="number" id="CreditScoreGain" placeholder="Enter a positive number">
+    <script>
+        var CreditScoreGain = sessionStorage.getItem('ep.CreditScoreGain');
+        
+        if (CreditScoreGain === null) {
+            var CreditScoreGain = "1";
+            sessionStorage.setItem('ep.CreditScoreGain', "1");
+        }
+        const eCreditScoreGain = document.getElementById('CreditScoreGain');
+        document.getElementById('CreditScoreGain').value = CreditScoreGain;
+
+        eCreditScoreGain.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            CreditScoreGain = e.target.value;
+            sessionStorage.setItem('ep.CreditScoreGain', CreditScoreGain);
+        }
+    </script>
+</h3>
+<h3>CreditScoreLoss     
+    <input class="percent numbox" type="number" id="CreditScoreLoss" placeholder="Enter a positive number">
+    <script>
+        var CreditScoreLoss = sessionStorage.getItem('ep.CreditScoreLoss');
+        
+        if (CreditScoreLoss === null) {
+            var CreditScoreLoss = "5";
+            sessionStorage.setItem('ep.CreditScoreLoss', "5");
+        }
+        const eCreditScoreLoss = document.getElementById('CreditScoreLoss');
+        document.getElementById('CreditScoreLoss').value = CreditScoreLoss;
+
+        eCreditScoreLoss.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            CreditScoreLoss = e.target.value;
+            sessionStorage.setItem('ep.CreditScoreLoss', CreditScoreLoss);
+        }
+    </script>
+</h3>
+<h3>CreditMinPercentPay
+            
+    <input class="percent numbox" type="number" id="CreditMinPercentPay" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var CreditMinPercentPay = sessionStorage.getItem('ep.CreditMinPercentPay');
+        
+        if (CreditMinPercentPay === null) {
+            var CreditMinPercentPay = "10";
+            sessionStorage.setItem('ep.CreditMinPercentPay', "10");
+        }
+        const eCreditMinPercentPay = document.getElementById('CreditMinPercentPay');
+        document.getElementById('CreditMinPercentPay').value = CreditMinPercentPay;
+
+        eCreditMinPercentPay.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            CreditMinPercentPay = e.target.value;
+            sessionStorage.setItem('ep.CreditMinPercentPay', CreditMinPercentPay);
+        }
+
+    </script>
+
+</h3>
+
+    </body>
+</html>

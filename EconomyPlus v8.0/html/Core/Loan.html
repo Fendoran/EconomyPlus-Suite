@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://fonts.googleapis.com/css?family=work+sans:300">
+            <link href="../css/styles.css" rel="stylesheet" type="text/css">
+            <meta charset="UTF-8">
+            <title>EconomyPlus</title>
+            <link rel="icon" href="../assets/page_icon.gif">
+    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <header>
+    <div class="container">
+    <img src="../assets/EconomyPlus.png" alt="logo" class="logo">
+    <h1 class="header"></h1>
+    <div id="navbar">
+    <a class="active" href="home.html">Home</a>
+
+    <div class="subnav">
+    <button class="subnavbtn">Core <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Core/Spawn.html">Spawn</a>
+<a href="../Core/Bank.html">Bank</a>
+<a href="../Core/Vault.html">Vault</a>
+<a href="../Core/Loan.html">Loan</a>
+<a href="../Core/Debt.html">Debt</a>
+<a href="../Core/Tax.html">Tax</a>
+<a href="../Core/Playtime Reward.html">Playtime Reward</a>
+<a href="../Core/Player Shops.html">Player Shops</a>
+<a href="../Core/Auction.html">Auction</a>
+<a href="../Core/Money Display.html">Money Display</a>
+<a href="../Core/Death Drop.html">Death Drop</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Travel <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Travel/Travel.html">Travel</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Bounty <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Bounty/Bounty.html">Bounty</a>
+</div>
+</div>
+    <div class="subnav">
+    <button class="subnavbtn">Loot <!--<i class="fa fa-caret-down"></i>--></button>
+    <div class="subnav-content">
+<a href="../Loot/Loot.html">Loot</a>
+</div>
+</div>
+    <a href="https://www.planetminecraft.com/data-pack/economyplus-plugin-claims/" target="_blank">Claim</a>
+    <div class="navbar-right">
+    <a href="../Core/export.html">Import/Export</a>
+
+    </div>
+    </div>
+    </div>
+    </header>
+<h3>AllowLoan
+    <button class="button on" id="AllowLoan" onclick=toggle></button>
+    <script>
+        var AllowLoan = sessionStorage.getItem('ep.AllowLoan');
+        console.log(AllowLoan)
+        if (AllowLoan === null) {
+            AllowLoan = "1";
+            sessionStorage.setItem('ep.AllowLoan', "1");
+        }
+
+        if(AllowLoan === "1") {
+            document.getElementById("AllowLoan").innerHTML = "True";
+            document.getElementById("AllowLoan").classList.add("on");
+            document.getElementById("AllowLoan").classList.remove("off");
+            sessionStorage.setItem('ep.AllowLoan', "1");
+        } else {
+            document.getElementById("AllowLoan").innerHTML = "False";
+            document.getElementById("AllowLoan").classList.add("off");
+            document.getElementById("AllowLoan").classList.remove("on");
+            sessionStorage.setItem('ep.AllowLoan', "0");
+        }
+
+        document.getElementById("AllowLoan").onclick = function() {
+            //AllowLoan = !AllowLoan
+            if(AllowLoan === "0") {
+                AllowLoan = "1"
+                document.getElementById("AllowLoan").innerHTML = "True";
+                document.getElementById("AllowLoan").classList.add("on");
+                document.getElementById("AllowLoan").classList.remove("off");
+                sessionStorage.setItem('ep.AllowLoan', "1");
+                
+            } else {
+                AllowLoan = "0"
+                document.getElementById("AllowLoan").innerHTML = "False";
+                document.getElementById("AllowLoan").classList.add("off");
+                document.getElementById("AllowLoan").classList.remove("on");
+                sessionStorage.setItem('ep.AllowLoan', "0");
+                
+            }
+        };
+    </script> 
+</h3><h3>MaxLoan
+    <span class="MaxLoan">$</span>
+    <input class="percent numbox" type="number" id="MaxLoan" placeholder="Enter a positive number">
+    <script>
+        var MaxLoan = sessionStorage.getItem('ep.MaxLoan');
+        
+        if (MaxLoan === null) {
+            var MaxLoan = "500000";
+            sessionStorage.setItem('ep.MaxLoan', "500000");
+        }
+        const eMaxLoan = document.getElementById('MaxLoan');
+        document.getElementById('MaxLoan').value = MaxLoan;
+
+        eMaxLoan.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MaxLoan = e.target.value;
+            sessionStorage.setItem('ep.MaxLoan', MaxLoan);
+        }
+    </script>
+</h3>
+<h3>PlayerEquityBeforeLoan
+            
+    <input class="percent numbox" type="number" id="PlayerEquityBeforeLoan" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var PlayerEquityBeforeLoan = sessionStorage.getItem('ep.PlayerEquityBeforeLoan');
+        
+        if (PlayerEquityBeforeLoan === null) {
+            var PlayerEquityBeforeLoan = "15";
+            sessionStorage.setItem('ep.PlayerEquityBeforeLoan', "15");
+        }
+        const ePlayerEquityBeforeLoan = document.getElementById('PlayerEquityBeforeLoan');
+        document.getElementById('PlayerEquityBeforeLoan').value = PlayerEquityBeforeLoan;
+
+        ePlayerEquityBeforeLoan.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            PlayerEquityBeforeLoan = e.target.value;
+            sessionStorage.setItem('ep.PlayerEquityBeforeLoan', PlayerEquityBeforeLoan);
+        }
+
+    </script>
+
+</h3>
+<h3>MaxLoanOfAmountInVault
+            
+    <input class="percent numbox" type="number" id="MaxLoanOfAmountInVault" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var MaxLoanOfAmountInVault = sessionStorage.getItem('ep.MaxLoanOfAmountInVault');
+        
+        if (MaxLoanOfAmountInVault === null) {
+            var MaxLoanOfAmountInVault = "100";
+            sessionStorage.setItem('ep.MaxLoanOfAmountInVault', "100");
+        }
+        const eMaxLoanOfAmountInVault = document.getElementById('MaxLoanOfAmountInVault');
+        document.getElementById('MaxLoanOfAmountInVault').value = MaxLoanOfAmountInVault;
+
+        eMaxLoanOfAmountInVault.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            MaxLoanOfAmountInVault = e.target.value;
+            sessionStorage.setItem('ep.MaxLoanOfAmountInVault', MaxLoanOfAmountInVault);
+        }
+
+    </script>
+
+</h3>
+<h3>LoanInterest
+            
+    <input class="percent numbox" type="number" id="LoanInterest" placeholder="Enter a positive number">
+    <span class="percent">%</span>
+    <script>
+        var LoanInterest = sessionStorage.getItem('ep.LoanInterest');
+        
+        if (LoanInterest === null) {
+            var LoanInterest = "25";
+            sessionStorage.setItem('ep.LoanInterest', "25");
+        }
+        const eLoanInterest = document.getElementById('LoanInterest');
+        document.getElementById('LoanInterest').value = LoanInterest;
+
+        eLoanInterest.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+            LoanInterest = e.target.value;
+            sessionStorage.setItem('ep.LoanInterest', LoanInterest);
+        }
+
+    </script>
+
+</h3>
+
+    </body>
+</html>
